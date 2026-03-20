@@ -98,7 +98,7 @@ font-size:18px;
 /* frieren */
 .frieren-character{
 position:fixed;
-width:100px;
+width:150px;
 z-index:999;
 cursor:pointer;
 }
@@ -149,7 +149,9 @@ animation:float 3s infinite, blink 4s infinite;
 
 </div>
 
-<div class="frieren-character" id="frieren">
+<div class="frieren-character frieren1"></div>
+<div class="frieren-character frieren2"></div>
+<div class="frieren-character frieren3"></div>
 <img src="assets/frieren.png">
 </div>
 
@@ -197,23 +199,35 @@ playing=false;
 };
 
 // 🧝 Frieren movement
-const f=document.getElementById('frieren');
+const frierens = [];
 
-function move(){
-f.style.left=Math.random()*90+"vw";
-f.style.top=Math.random()*90+"vh";
-f.style.transition="2s linear";
-}
-setInterval(move,2000);
+for(let i=0;i<3;i++){
+    const f = document.createElement("div");
+    f.className = "frieren-character";
 
-// jump + sound
-f.onclick=()=>{
-f.style.transform="translateY(-50px)";
-music.currentTime=0;
-music.play();
-setTimeout(()=>f.style.transform="none",400);
-};
+    const img = document.createElement("img");
+    img.src = "assets/frieren.png";
 
+    f.appendChild(img);
+    document.body.appendChild(f);
+
+    frierens.push(f);
+
+    // movement
+    setInterval(()=>{
+        f.style.left = Math.random()*90 + "vw";
+        f.style.top = Math.random()*90 + "vh";
+        f.style.transition = "2s linear";
+    }, 2000);
+
+    // jump + sound
+    f.onclick = ()=>{
+        f.style.transform="translateY(-50px)";
+        music.currentTime=0;
+        music.play();
+        setTimeout(()=>f.style.transform="none",400);
+    };
+  }
 // 🌌 SKY
 const canvas=document.getElementById('sky');
 const ctx=canvas.getContext('2d');
