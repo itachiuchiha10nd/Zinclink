@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frieren's Links ✨</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+--bg-primary: linear-gradient(135deg,#a8d8ea,#d4a5e8,#ffd6e8);
+--text-primary:#2c3e50;
+--text-secondary:#5a6c7d;
+--glass-bg:rgba(255,255,255,0.2);
+--glass-border:rgba(255,255,255,0.3);
+}
+
+body.dark-mode{
+--bg-primary: linear-gradient(135deg,#1a1f3a,#2d1b4e,#1f1635);
+--text-primary:#e8f4f8;
+--text-secondary:#b8c5d6;
+--glass-bg:rgba(255,255,255,0.08);
+--glass-border:rgba(255,255,255,0.15);
+}
+
+body{
+font-family:'Quicksand',sans-serif;
+background:var(--bg-primary);
+color:var(--text-primary);
+min-height:100vh;
+overflow-x:hidden;
+}
+
+/* container */
+.container{
+max-width:600px;
+margin:auto;
+padding:40px 20px;
+text-align:center;
+}
+
+/* profile */
+.profile img{
+width:130px;height:130px;border-radius:50%;
+border:4px solid var(--glass-border);
+margin-bottom:15px;
+}
+
+.profile-title{
+font-family:'Cinzel',serif;
+font-size:1.8rem;
+margin-bottom:10px;
+}
+
+.profile-bio{
+color:var(--text-secondary);
+}
+
+/* links */
+.links{
+margin-top:30px;
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.link-button{
+padding:16px;
+border-radius:16px;
+text-decoration:none;
+color:var(--text-primary);
+background:var(--glass-bg);
+border:2px solid var(--glass-border);
+transition:.3s;
+}
+
+.link-button:hover{
+transform:translateY(-3px);
+}
+
+/* controls */
+.controls{
+position:fixed;
+top:15px;
+right:15px;
+display:flex;
+gap:10px;
+}
+
+.control-btn{
+width:45px;height:45px;border-radius:50%;
+border:none;cursor:pointer;
+background:var(--glass-bg);
+}
+
+/* frieren */
+.frieren-character{
+position:fixed;
+bottom:20px;
+left:-150px;
+width:120px;
+pointer-events:auto;
+cursor:pointer;
+animation:move 18s linear infinite;
+}
+
+@keyframes move{
+0%{left:-150px}
+50%{left:calc(100% - 120px)}
+100%{left:-150px}
+}
+
+.frieren-character.jumping{
+animation:jump .6s ease;
+}
+
+@keyframes jump{
+50%{transform:translateY(-40px)}
+}
+
+/* loading */
+.loading-overlay{
+position:fixed;
+top:0;left:0;width:100%;height:100%;
+display:flex;align-items:center;justify-content:center;
+background:#a8d8ea;
+z-index:999;
+}
+</style>
+</head>
+
+<body>
+
+<div class="loading-overlay">Loading ✨</div>
+
+<div class="controls">
+<button id="themeToggle">🌙</button>
+<button id="musicToggle">🎵</button>
+</div>
+
+<div class="container">
+<div class="profile">
+<img src="assets/profile.jpg">
+<h1 class="profile-title">Frieren's Journey</h1>
+<p class="profile-bio">Beyond the journey’s end ✨</p>
+</div>
+
+<div class="links">
+<a href="#" class="link-button">Telegram</a>
+<a href="#" class="link-button">YouTube</a>
+<a href="#" class="link-button">Instagram</a>
+</div>
+</div>
+
+<div class="frieren-character" id="frierenChar">
+<img src="assets/frieren.png" width="100%">
+</div>
+
+<audio id="bgMusic" loop preload="auto">
+<source src="assets/music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// 🌙 Theme
+const themeBtn=document.getElementById('themeToggle');
+const body=document.body;
+
+if(localStorage.getItem('theme')==='dark'){
+body.classList.add('dark-mode');
+themeBtn.textContent='☀️';
+}
+
+themeBtn.onclick=()=>{
+body.classList.toggle('dark-mode');
+const dark=body.classList.contains('dark-mode');
+themeBtn.textContent=dark?'☀️':'🌙';
+localStorage.setItem('theme',dark?'dark':'light');
+};
+
+// 🎵 Music
+const musicBtn=document.getElementById('musicToggle');
+const music=document.getElementById('bgMusic');
+let playing=false;
+
+document.addEventListener('click',()=>{
+music.play().then(()=>music.pause()).catch(()=>{});
+},{once:true});
+
+musicBtn.onclick=()=>{
+if(!playing){
+music.play();
+musicBtn.textContent='🔊';
+playing=true;
+}else{
+music.pause();
+musicBtn.textContent='🎵';
+playing=false;
+}
+};
+
+// 🧝 Jump
+const char=document.getElementById('frierenChar');
+char.onclick=()=>{
+char.classList.add('jumping');
+setTimeout(()=>char.classList.remove('jumping'),600);
+};
+
+// ⏳ Load
+window.onload=()=>{
+document.querySelector('.loading-overlay').remove();
+};
+</script>
+
+</body>
+  </html>
