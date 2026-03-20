@@ -10,46 +10,59 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
-/* 🌞 Light Mode */
+/* 🌞 Light */
 :root{
---bg:linear-gradient(135deg,#a8d8ea,#d4a5e8,#ffd6e8);
+--bg:#a8d8ea;
 --text:#2c3e50;
 --card:rgba(255,255,255,0.3);
 }
 
-/* 🌙 Dark Mode */
-.dark{
---bg:linear-gradient(135deg,#1a1f3a,#3b1f5c);
---text:#fff;
+/* 🌙 Dark */
+body.dark{
+--bg:#0d1025;
+--text:#ffffff;
 --card:rgba(255,255,255,0.1);
 }
 
 body{
-font-family:'Quicksand',sans-serif;
 background:var(--bg);
 color:var(--text);
+font-family:'Quicksand',sans-serif;
 text-align:center;
-transition:.4s;
 overflow:hidden;
+transition:0.4s;
 }
 
-/* Profile */
+/* canvas sky */
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:0;
+}
+
+/* container */
+.container{
+position:relative;
+z-index:1;
+}
+
+/* profile */
 .profile img{
 width:120px;height:120px;border-radius:50%;
-margin-top:40px;
+margin-top:30px;
 border:3px solid rgba(255,255,255,0.5);
 }
 
-h1{font-family:'Cinzel',serif;margin-top:10px}
+h1{font-family:'Cinzel'}
 
-.profile-bio{margin-bottom:25px}
-
-/* Links */
+/* links */
 .links{
 display:flex;
 flex-direction:column;
 gap:12px;
 padding:0 20px;
+margin-top:20px;
 }
 
 .link-button{
@@ -58,7 +71,6 @@ border-radius:18px;
 text-decoration:none;
 color:var(--text);
 background:var(--card);
-backdrop-filter:blur(10px);
 transition:.3s;
 }
 
@@ -66,25 +78,24 @@ transition:.3s;
 transform:scale(1.05);
 }
 
-/* Controls */
+/* controls */
 .controls{
 position:fixed;
-top:15px;
-right:15px;
+top:10px;
+right:10px;
+z-index:999;
 display:flex;
 gap:10px;
-z-index:1000;
 }
 
 .control-btn{
 width:45px;height:45px;
-border-radius:50%;
-border:none;
+border:none;border-radius:50%;
 cursor:pointer;
 font-size:18px;
 }
 
-/* Frieren */
+/* frieren */
 .frieren-character{
 position:fixed;
 width:100px;
@@ -98,12 +109,10 @@ animation:float 3s infinite, blink 4s infinite;
 }
 
 @keyframes float{
-0%,100%{transform:translateY(0)}
 50%{transform:translateY(-10px)}
 }
 
 @keyframes blink{
-0%,92%,100%{opacity:1}
 95%{opacity:0.3}
 }
 </style>
@@ -111,15 +120,18 @@ animation:float 3s infinite, blink 4s infinite;
 
 <body>
 
+<canvas id="sky"></canvas>
+
 <div class="controls">
 <button class="control-btn" id="themeToggle">🌙</button>
 <button class="control-btn" id="musicToggle">🎵</button>
 </div>
 
+<div class="container">
+
 <div class="profile">
 <img src="assets/profile.jpg">
 <h1>✨ ZINCLINK ✨</h1>
-<p class="profile-bio">Beyond the journey ✨</p>
 </div>
 
 <div class="links">
@@ -135,7 +147,9 @@ animation:float 3s infinite, blink 4s infinite;
 <a href="https://padlet.com/serialollipoop/freedom-wall-fqxswoovty9lok4s" class="link-button">💭 Freedom Wall</a>
 </div>
 
-<div class="frieren-character" id="frierenChar">
+</div>
+
+<div class="frieren-character" id="frieren">
 <img src="assets/frieren.png">
 </div>
 
@@ -144,169 +158,7 @@ animation:float 3s infinite, blink 4s infinite;
 </audio>
 
 <script>
-// 🌙 Theme toggle
-const body=document.body;
-const themeBtn=document.getElementById('themeToggle');
-
-if(localStorage.getItem('theme')==='dark'){
-body.classList.add('dark');
-themeBtn.textContent='☀️';
-}
-
-themeBtn.onclick=()=>{
-body.classList.toggle('dark');
-const dark=body.classList.contains('dark');
-themeBtn.textContent=dark?'☀️':'🌙';
-localStorage.setItem('theme',dark?'dark':'light');
-};
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zinclink ✨</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-
-/* 🌞 Light Mode */
-:root{
---bg:linear-gradient(135deg,#a8d8ea,#d4a5e8,#ffd6e8);
---text:#2c3e50;
---card:rgba(255,255,255,0.3);
-}
-
-/* 🌙 Dark Mode */
-.dark{
---bg:linear-gradient(135deg,#1a1f3a,#3b1f5c);
---text:#fff;
---card:rgba(255,255,255,0.1);
-}
-
-body{
-font-family:'Quicksand',sans-serif;
-background:var(--bg);
-color:var(--text);
-text-align:center;
-transition:.4s;
-overflow:hidden;
-}
-
-/* Profile */
-.profile img{
-width:120px;height:120px;border-radius:50%;
-margin-top:40px;
-border:3px solid rgba(255,255,255,0.5);
-}
-
-h1{font-family:'Cinzel',serif;margin-top:10px}
-
-.profile-bio{margin-bottom:25px}
-
-/* Links */
-.links{
-display:flex;
-flex-direction:column;
-gap:12px;
-padding:0 20px;
-}
-
-.link-button{
-padding:15px;
-border-radius:18px;
-text-decoration:none;
-color:var(--text);
-background:var(--card);
-backdrop-filter:blur(10px);
-transition:.3s;
-}
-
-.link-button:hover{
-transform:scale(1.05);
-}
-
-/* Controls */
-.controls{
-position:fixed;
-top:15px;
-right:15px;
-display:flex;
-gap:10px;
-z-index:1000;
-}
-
-.control-btn{
-width:45px;height:45px;
-border-radius:50%;
-border:none;
-cursor:pointer;
-font-size:18px;
-}
-
-/* Frieren */
-.frieren-character{
-position:fixed;
-width:100px;
-z-index:999;
-cursor:pointer;
-}
-
-.frieren-character img{
-width:100%;
-animation:float 3s infinite, blink 4s infinite;
-}
-
-@keyframes float{
-0%,100%{transform:translateY(0)}
-50%{transform:translateY(-10px)}
-}
-
-@keyframes blink{
-0%,92%,100%{opacity:1}
-95%{opacity:0.3}
-}
-</style>
-</head>
-
-<body>
-
-<div class="controls">
-<button class="control-btn" id="themeToggle">🌙</button>
-<button class="control-btn" id="musicToggle">🎵</button>
-</div>
-
-<div class="profile">
-<img src="assets/profile.jpg">
-<h1>✨ ZINCLINK ✨</h1>
-<p class="profile-bio">Beyond the journey ✨</p>
-</div>
-
-<div class="links">
-<a href="https://t.me/+TR9htFRxo5wzZDFl" class="link-button">📡 Main Channel</a>
-<a href="https://t.me/+vXfnGFII1zk3YjI1" class="link-button">🐺 Ph Wolf blood</a>
-<a href="https://t.me/piratepotatoe" class="link-button">🎮 Ludum Nexus</a>
-<a href="https://t.me/+vl5nFkI2FdYwNDNl" class="link-button">📜 Zinchronicles</a>
-<a href="https://t.me/Zinisters" class="link-button">🌙 Nightmares</a>
-<a href="https://t.me/Zinclinck" class="link-button">🔗 Zinclink</a>
-<a href="https://t.me/Menolostalgia" class="link-button">🎵 Dump playlist</a>
-<a href="https://t.me/Matthew1128NIV" class="link-button">📖 God's Words</a>
-<a href="https://t.me/Formeforusforyou" class="link-button">🙏 Worship song</a>
-<a href="https://padlet.com/serialollipoop/freedom-wall-fqxswoovty9lok4s" class="link-button">💭 Freedom Wall</a>
-</div>
-
-<div class="frieren-character" id="frierenChar">
-<img src="assets/frieren.png">
-</div>
-
-<audio id="bgMusic" loop preload="auto">
-<source src="assets/music.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-// 🌙 Theme toggle
+// 🌙 Theme
 const body=document.body;
 const themeBtn=document.getElementById('themeToggle');
 
@@ -327,6 +179,7 @@ const music=document.getElementById('bgMusic');
 const musicBtn=document.getElementById('musicToggle');
 let playing=false;
 
+// mobile unlock
 document.addEventListener('click',()=>{
 music.play().then(()=>music.pause()).catch(()=>{});
 },{once:true});
@@ -343,26 +196,71 @@ playing=false;
 }
 };
 
-// 🧝 Frieren random movement
-const frieren=document.getElementById('frierenChar');
+// 🧝 Frieren movement
+const f=document.getElementById('frieren');
 
-function moveRandom(){
-const x=Math.random()*(window.innerWidth-120);
-const y=Math.random()*(window.innerHeight-120);
+function move(){
+f.style.left=Math.random()*90+"vw";
+f.style.top=Math.random()*90+"vh";
+f.style.transition="2s linear";
+}
+setInterval(move,2000);
 
-frieren.style.transition='2s linear';
-frieren.style.left=x+'px';
-frieren.style.top=y+'px';
+// jump + sound
+f.onclick=()=>{
+f.style.transform="translateY(-50px)";
+music.currentTime=0;
+music.play();
+setTimeout(()=>f.style.transform="none",400);
+};
+
+// 🌌 SKY
+const canvas=document.getElementById('sky');
+const ctx=canvas.getContext('2d');
+
+canvas.width=innerWidth;
+canvas.height=innerHeight;
+
+let stars=[];
+
+for(let i=0;i<100;i++){
+stars.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2
+});
 }
 
-setInterval(moveRandom,2000);
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle="white";
 
-// Jump
-frieren.onclick=()=>{
-frieren.style.transform='scale(1.1) translateY(-50px)';
-setTimeout(()=>frieren.style.transform='none',400);
-};
+stars.forEach(s=>{
+ctx.beginPath();
+ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+ctx.fill();
+});
+
+requestAnimationFrame(draw);
+}
+draw();
+
+// 🎮 mouse trail
+document.addEventListener('mousemove',(e)=>{
+let dot=document.createElement('div');
+dot.style.position='fixed';
+dot.style.left=e.clientX+'px';
+dot.style.top=e.clientY+'px';
+dot.style.width='5px';
+dot.style.height='5px';
+dot.style.background='white';
+dot.style.borderRadius='50%';
+dot.style.zIndex='999';
+document.body.appendChild(dot);
+
+setTimeout(()=>dot.remove(),500);
+});
 </script>
 
 </body>
-</html>k
+</html>
