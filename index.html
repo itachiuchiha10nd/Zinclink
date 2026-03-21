@@ -196,7 +196,7 @@ playing=false;
 };
 
 // 🧝 WEBM Frieren
-const videos = [
+const gifs = [
 "assets/frieren1.gif",
 "assets/frieren2.gif",
 "assets/frieren3.gif"
@@ -205,11 +205,11 @@ const videos = [
 const frierens = [];
 let activeFollower = null;
 
-videos.forEach(src=>{
+gifs.forEach(src=>{
     const f = document.createElement("div");
     f.className = "frieren-character";
 
-    const video = document.createElement("video");
+    const img = document.createElement("img");
     video.autoplay = true;
     video.loop = true;
     video.muted = true;
