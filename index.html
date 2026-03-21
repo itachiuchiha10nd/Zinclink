@@ -28,12 +28,11 @@ body{
 background:var(--bg);
 color:var(--text);
 font-family:'Quicksand',sans-serif;
-text-align:center;
 overflow:hidden;
 transition:0.4s;
 }
 
-/* canvas sky */
+/* canvas */
 canvas{
 position:fixed;
 top:0;
@@ -45,23 +44,25 @@ z-index:0;
 .container{
 position:relative;
 z-index:1;
+text-align:center;
+padding:20px;
 }
 
 /* profile */
 .profile img{
 width:120px;height:120px;border-radius:50%;
-margin-top:30px;
-border:3px solid rgba(255,255,255,0.5);
 }
 
-h1{font-family:'Cinzel'}
+h1{
+font-family:'Cinzel';
+margin-top:10px;
+}
 
 /* links */
 .links{
 display:flex;
 flex-direction:column;
 gap:12px;
-padding:0 20px;
 margin-top:20px;
 }
 
@@ -97,23 +98,14 @@ font-size:18px;
 
 /* frieren */
 .frieren-character{
-position:fixed;
-width:150px;
-z-index:999;
+position:absolute;
+width:160px;
 cursor:pointer;
 }
 
-.frieren-character img{
+.frieren-character video{
 width:100%;
-animation:float 3s infinite, blink 4s infinite;
-}
-
-@keyframes float{
-50%{transform:translateY(-10px)}
-}
-
-@keyframes blink{
-95%{opacity:0.3}
+pointer-events:none;
 }
 </style>
 </head>
@@ -149,12 +141,6 @@ animation:float 3s infinite, blink 4s infinite;
 
 </div>
 
-<div class="frieren-character frieren1"></div>
-<div class="frieren-character frieren2"></div>
-<div class="frieren-character frieren3"></div>
-<img src="assets/frieren.png">
-</div>
-
 <audio id="bgMusic" loop preload="auto">
 <source src="assets/music.mp3" type="audio/mpeg">
 </audio>
@@ -181,7 +167,6 @@ const music=document.getElementById('bgMusic');
 const musicBtn=document.getElementById('musicToggle');
 let playing=false;
 
-// mobile unlock
 document.addEventListener('click',()=>{
 music.play().then(()=>music.pause()).catch(()=>{});
 },{once:true});
@@ -198,36 +183,67 @@ playing=false;
 }
 };
 
-// 🧝 Frieren movement
-const frierens = [];
+// 🧝 MP4 Frieren SYSTEM
+const videos = [
+"assets/frieren1.mp4",
+"assets/frieren2.mp4",
+"assets/frieren3.mp4"
+];
 
-for(let i=0;i<3;i++){
+const frierens = [];
+let activeFollower = null;
+
+videos.forEach(src=>{
     const f = document.createElement("div");
     f.className = "frieren-character";
 
-    const img = document.createElement("img");
-    img.src = "assets/frieren.png";
+    const video = document.createElement("video");
+    video.src = src;
+    video.autoplay = true;
+    video.loop = true;
+    video.muted = true;
+    video.playsInline = true;
 
-    f.appendChild(img);
+    f.appendChild(video);
     document.body.appendChild(f);
+
+    f.style.left = Math.random()*80 + "vw";
+    f.style.top = Math.random()*70 + "vh";
 
     frierens.push(f);
 
-    // movement
-    setInterval(()=>{
-        f.style.left = Math.random()*90 + "vw";
-        f.style.top = Math.random()*90 + "vh";
-        f.style.transition = "2s linear";
-    }, 2000);
-
-    // jump + sound
+    // click → follow
     f.onclick = ()=>{
-        f.style.transform="translateY(-50px)";
+        activeFollower = f;
+
+        f.style.transform="translateY(-50px) scale(1.05)";
         music.currentTime=0;
         music.play();
+
         setTimeout(()=>f.style.transform="none",400);
     };
-  }
+});
+
+// mouse follow
+document.addEventListener("mousemove",(e)=>{
+    if(activeFollower){
+        activeFollower.style.left = (e.clientX - 80) + "px";
+        activeFollower.style.top = (e.clientY - 80) + "px";
+        activeFollower.style.transition="0.2s linear";
+    }
+});
+
+// random movement
+setInterval(()=>{
+    frierens.forEach(f=>{
+        if(f !== activeFollower){
+            f.style.left = Math.random()*90 + "vw";
+            f.style.top = Math.random()*90 + "vh";
+            f.style.transition="2s linear";
+        }
+    });
+},2000);
+
 // 🌌 SKY
 const canvas=document.getElementById('sky');
 const ctx=canvas.getContext('2d');
@@ -236,7 +252,6 @@ canvas.width=innerWidth;
 canvas.height=innerHeight;
 
 let stars=[];
-
 for(let i=0;i<100;i++){
 stars.push({
 x:Math.random()*canvas.width,
@@ -272,7 +287,7 @@ dot.style.borderRadius='50%';
 dot.style.zIndex='999';
 document.body.appendChild(dot);
 
-setTimeout(()=>dot.remove(),500);
+setTimeout(()=>dot.remove(),400);
 });
 </script>
 
