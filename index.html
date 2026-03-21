@@ -102,10 +102,22 @@ position:absolute;
 width:100px;
 cursor:pointer;
 }
-    
+
 .frieren-character video{
-    width:100%;
-    pointer-events:none;    
+width:100%;
+pointer-events:none;
+}
+
+/* 🌙 Night (normal) */
+body.dark .frieren-character video{
+filter:none;
+}
+
+/* 🌞 Day fix (white issue solved) */
+body:not(.dark) .frieren-character video{
+filter:drop-shadow(0 0 8px rgba(0,0,0,0.7))
+contrast(1.3)
+brightness(0.9);
 }
 </style>
 </head>
@@ -183,7 +195,7 @@ playing=false;
 }
 };
 
-// 🧝 MP4 Frieren SYSTEM
+// 🧝 WEBM Frieren
 const videos = [
 "assets/frieren1.webm",
 "assets/frieren2.webm",
@@ -198,13 +210,18 @@ videos.forEach(src=>{
     f.className = "frieren-character";
 
     const video = document.createElement("video");
-    video.src = src;
     video.autoplay = true;
     video.loop = true;
     video.muted = true;
     video.playsInline = true;
 
+    const source = document.createElement("source");
+    source.src = src;
+    source.type = "video/webm";
+
+    video.appendChild(source);
     f.appendChild(video);
+
     document.body.appendChild(f);
 
     f.style.left = Math.random()*80 + "vw";
@@ -212,7 +229,6 @@ videos.forEach(src=>{
 
     frierens.push(f);
 
-    // click → follow
     f.onclick = ()=>{
         activeFollower = f;
 
