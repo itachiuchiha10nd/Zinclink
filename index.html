@@ -99,25 +99,18 @@ font-size:18px;
 /* frieren */
 .frieren-character{
 position:absolute;
-width:100px;
+width:150px;
 cursor:pointer;
 }
 
-.frieren-character video{
+.frieren-character img{
 width:100%;
-pointer-events:none;
+animation:float 3s infinite;
+filter:drop-shadow(0 0 6px rgba(0,0,0,0.6));
 }
 
-/* 🌙 Night (normal) */
-body.dark .frieren-character video{
-filter:none;
-}
-
-/* 🌞 Day fix (white issue solved) */
-body:not(.dark) .frieren-character video{
-filter:drop-shadow(0 0 8px rgba(0,0,0,0.7))
-contrast(1.3)
-brightness(0.9);
+@keyframes float{
+50%{transform:translateY(-10px)}
 }
 </style>
 </head>
@@ -195,7 +188,7 @@ playing=false;
 }
 };
 
-// 🧝 WEBM Frieren
+// 🧝 GIF Frieren
 const gifs = [
 "assets/frieren1.gif",
 "assets/frieren2.gif",
@@ -210,18 +203,9 @@ gifs.forEach(src=>{
     f.className = "frieren-character";
 
     const img = document.createElement("img");
-    video.autoplay = true;
-    video.loop = true;
-    video.muted = true;
-    video.playsInline = true;
+    img.src = src;
 
-    const source = document.createElement("source");
-    source.src = src;
-    source.type = "video/webm";
-
-    video.appendChild(source);
-    f.appendChild(video);
-
+    f.appendChild(img);
     document.body.appendChild(f);
 
     f.style.left = Math.random()*80 + "vw";
@@ -232,7 +216,7 @@ gifs.forEach(src=>{
     f.onclick = ()=>{
         activeFollower = f;
 
-        f.style.transform="translateY(-50px) scale(1.05)";
+        f.style.transform="translateY(-50px)";
         music.currentTime=0;
         music.play();
 
@@ -243,8 +227,8 @@ gifs.forEach(src=>{
 // mouse follow
 document.addEventListener("mousemove",(e)=>{
     if(activeFollower){
-        activeFollower.style.left = (e.clientX - 80) + "px";
-        activeFollower.style.top = (e.clientY - 80) + "px";
+        activeFollower.style.left = (e.clientX - 70) + "px";
+        activeFollower.style.top = (e.clientY - 70) + "px";
         activeFollower.style.transition="0.2s linear";
     }
 });
@@ -260,7 +244,7 @@ setInterval(()=>{
     });
 },2000);
 
-// 🌌 SKY
+// 🌌 sky
 const canvas=document.getElementById('sky');
 const ctx=canvas.getContext('2d');
 
