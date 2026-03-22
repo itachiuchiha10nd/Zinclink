@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+here<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -10,17 +10,15 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
-/* 🌞 Light */
 :root{
 --bg:#a8d8ea;
 --text:#2c3e50;
 --card:rgba(255,255,255,0.3);
 }
 
-/* 🌙 Dark */
 body.dark{
 --bg:#0d1025;
---text:#ffffff;
+--text:#fff;
 --card:rgba(255,255,255,0.1);
 }
 
@@ -29,18 +27,11 @@ background:var(--bg);
 color:var(--text);
 font-family:'Quicksand',sans-serif;
 overflow:hidden;
-transition:0.4s;
+transition:.4s;
 }
 
-/* canvas */
-canvas{
-position:fixed;
-top:0;
-left:0;
-z-index:0;
-}
+canvas{position:fixed;top:0;left:0;z-index:0;}
 
-/* container */
 .container{
 position:relative;
 z-index:1;
@@ -48,17 +39,12 @@ text-align:center;
 padding:20px;
 }
 
-/* profile */
 .profile img{
 width:120px;height:120px;border-radius:50%;
 }
 
-h1{
-font-family:'Cinzel';
-margin-top:10px;
-}
+h1{font-family:'Cinzel';margin-top:10px;}
 
-/* links */
 .links{
 display:flex;
 flex-direction:column;
@@ -75,52 +61,57 @@ background:var(--card);
 transition:.3s;
 }
 
-.link-button:hover{
-transform:scale(1.05);
-}
+.link-button:hover{transform:scale(1.05);}
 
 /* controls */
 .controls{
 position:fixed;
 top:10px;
 right:10px;
-z-index:999;
 display:flex;
 gap:10px;
+z-index:999;
 }
 
 .control-btn{
 width:45px;height:45px;
 border:none;border-radius:50%;
 cursor:pointer;
-font-size:18px;
+}
+
+/* sticker button */
+.sticker-btn{
+width:75px;height:45px;
+border-radius:12px;
+background:#111;
+color:#fff;
+font-weight:bold;
+display:flex;
+align-items:center;
+justify-content:center;
 }
 
 /* frieren */
 .frieren-character{
 position:absolute;
-width:150px;
-cursor:pointer;
+width:80px;
 }
 
 .frieren-character img{
 width:100%;
 animation:float 3s infinite;
-filter:drop-shadow(0 0 6px rgba(0,0,0,0.6));
 }
 
 @keyframes float{
 50%{transform:translateY(-10px)}
 }
 
-/* ☁️ STICKER SKY PAGE */
+/* sticker page */
 .page{
 position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:linear-gradient(to bottom,#87CEEB,#e0f7ff);
+top:0;left:0;
+width:100%;height:100%;
+background:linear-gradient(#87CEEB,#e0f7ff);
 display:none;
 z-index:9999;
 overflow:hidden;
@@ -128,13 +119,8 @@ padding:20px;
 text-align:center;
 }
 
-/* content above clouds */
-.page .links{
-position:relative;
-z-index:2;
-}
+.page .links{position:relative;z-index:2;}
 
-/* back */
 .back{
 position:fixed;
 top:10px;
@@ -142,35 +128,15 @@ left:10px;
 padding:8px 12px;
 border:none;
 border-radius:10px;
-cursor:pointer;
-z-index:3;
 }
 
-/* ☁️ clouds */
+/* clouds */
 .cloud{
 position:absolute;
 background:white;
 border-radius:50%;
-opacity:0.8;
+opacity:.8;
 animation:cloudMove linear infinite;
-}
-
-.cloud::before,
-.cloud::after{
-content:'';
-position:absolute;
-background:white;
-border-radius:50%;
-}
-
-.cloud::before{
-width:60px;height:60px;
-top:-20px;left:10px;
-}
-
-.cloud::after{
-width:80px;height:80px;
-top:-30px;left:40px;
 }
 
 .cloud1{width:120px;height:60px;top:20%;animation-duration:40s;}
@@ -182,7 +148,7 @@ top:-30px;left:40px;
 100%{left:110%;}
 }
 
-/* 🐦 birds */
+/* birds */
 .bird{
 position:absolute;
 font-size:20px;
@@ -191,7 +157,6 @@ animation:fly 10s linear infinite;
 
 @keyframes fly{
 0%{left:-50px;top:20%;}
-50%{top:10%;}
 100%{left:110%;top:25%;}
 }
 </style>
@@ -204,6 +169,7 @@ animation:fly 10s linear infinite;
 <div class="controls">
 <button class="control-btn" id="themeToggle">🌙</button>
 <button class="control-btn" id="musicToggle">🎵</button>
+<button class="sticker-btn" onclick="openStickers()">Sticker</button>
 </div>
 
 <div class="container">
@@ -224,127 +190,89 @@ animation:fly 10s linear infinite;
 <a href="https://t.me/Matthew1128NIV" class="link-button">📖 God's Words</a>
 <a href="https://t.me/Formeforusforyou" class="link-button">🙏 Worship song</a>
 <a href="https://padlet.com/serialollipoop/freedom-wall-fqxswoovty9lok4s" class="link-button">💭 Freedom Wall</a>
-
-<a href="#" onclick="openStickers()" class="link-button">🎨 Sticker Packs</a>
 </div>
 
 </div>
 
-<!-- ☁️ STICKER PAGE -->
+<!-- sticker page -->
 <div id="stickerPage" class="page">
 
 <button onclick="closeStickers()" class="back">⬅ Back</button>
 
-<!-- clouds -->
 <div class="cloud cloud1"></div>
 <div class="cloud cloud2"></div>
 <div class="cloud cloud3"></div>
 
-<!-- birds -->
 <div class="bird">🐦</div>
 <div class="bird" style="animation-delay:3s;">🐦</div>
-<div class="bird" style="animation-delay:6s;">🐦</div>
 
 <h2>✨ Sticker Packs ✨</h2>
 
 <div class="links">
-<a href="https://t.me/addstickers/Dino_kuning_by_fStikBot" class="link-button">🦖 Dino Kuning</a>
-<a href="https://t.me/addstickers/video2084685332_by_Zeroo_Twoo_Bot" class="link-button">💙 Zinc Fav</a>
-<a href="https://t.me/addstickers/Zinxcca_by_fStikBot" class="link-button">🐒 White Monkey</a>
-<a href="https://t.me/addstickers/yellowfatdragon_by_fStikBot" class="link-button">🐉 Nailong</a>
-<a href="https://t.me/addstickers/Cote_Cherries_by_fStikBot" class="link-button">🍒 Cote Cherry</a>
-<a href="https://t.me/addstickers/animated_2084685332_by_rNatalie_bot" class="link-button">🔥 Buttazz</a>
-<a href="https://t.me/addstickers/a2084685332_by_rNatalie_bot" class="link-button">🥥 Coconut</a>
-<a href="https://t.me/addstickers/Qoobeeagapito_by_fStikBot" class="link-button">🐝 Qoobee</a>
-<a href="https://t.me/addstickers/theachan_by_fStikBot" class="link-button">👭 Sisters</a>
-<a href="https://t.me/addstickers/anivid_2084685332_by_rNatalie_bot" class="link-button">🍯 Zinsyrups</a>
-<a href="https://t.me/addstickers/animated2084685332_by_Zeroo_Twoo_Bot" class="link-button">⚡ ASL</a>
-<a href="https://t.me/addstickers/junji_love_by_fStikBot" class="link-button">❤️ Junji</a>
+<a href="https://t.me/addstickers/Dino_kuning_by_fStikBot" class="link-button">🦖 Dino Kuning (120)</a>
+<a href="https://t.me/addstickers/video2084685332_by_Zeroo_Twoo_Bot" class="link-button">💙 Zinc Fav (98)</a>
+<a href="https://t.me/addstickers/Zinxcca_by_fStikBot" class="link-button">🐒 White Monkey (93)</a>
+<a href="https://t.me/addstickers/yellowfatdragon_by_fStikBot" class="link-button">🐉 Nailong (30)</a>
+<a href="https://t.me/addstickers/Cote_Cherries_by_fStikBot" class="link-button">🍒 Cote Cherry (77)</a>
+<a href="https://t.me/addstickers/animated_2084685332_by_rNatalie_bot" class="link-button">🔥 Buttazz (24)</a>
+<a href="https://t.me/addstickers/a2084685332_by_rNatalie_bot" class="link-button">🥥 Coconut (17)</a>
+<a href="https://t.me/addstickers/Qoobeeagapito_by_fStikBot" class="link-button">🐝 Qoobee (120)</a>
+<a href="https://t.me/addstickers/theachan_by_fStikBot" class="link-button">👭 Sisters (40)</a>
+<a href="https://t.me/addstickers/anivid_2084685332_by_rNatalie_bot" class="link-button">🍯 Zinsyrups (12)</a>
+<a href="https://t.me/addstickers/animated2084685332_by_Zeroo_Twoo_Bot" class="link-button">⚡ ASL (27)</a>
+<a href="https://t.me/addstickers/junji_love_by_fStikBot" class="link-button">❤️ Junji (41)</a>
 </div>
 
 </div>
 
-<audio id="bgMusic" loop preload="auto">
-<source src="assets/music.mp3" type="audio/mpeg">
+<audio id="bgMusic" loop>
+<source src="assets/music.mp3">
 </audio>
 
 <script>
 // theme
 const body=document.body;
-const themeBtn=document.getElementById('themeToggle');
-
-if(localStorage.getItem('theme')==='dark'){
-body.classList.add('dark');
-themeBtn.textContent='☀️';
-}
-
-themeBtn.onclick=()=>{
+document.getElementById('themeToggle').onclick=()=>{
 body.classList.toggle('dark');
-const dark=body.classList.contains('dark');
-themeBtn.textContent=dark?'☀️':'🌙';
-localStorage.setItem('theme',dark?'dark':'light');
 };
 
 // music
 const music=document.getElementById('bgMusic');
-const musicBtn=document.getElementById('musicToggle');
 let playing=false;
-
-document.addEventListener('click',()=>{
-music.play().then(()=>music.pause()).catch(()=>{});
-},{once:true});
-
-musicBtn.onclick=()=>{
-if(!playing){
-music.play();
-musicBtn.textContent='🔊';
-playing=true;
-}else{
-music.pause();
-musicBtn.textContent='🎵';
-playing=false;
-}
+document.getElementById('musicToggle').onclick=()=>{
+playing?music.pause():music.play();
+playing=!playing;
 };
 
 // frieren
 const gifs=["assets/frieren1.gif","assets/frieren2.gif","assets/frieren3.gif"];
 const frierens=[];
-let activeFollower=null;
+let active=null;
 
 gifs.forEach(src=>{
-const f=document.createElement("div");
+let f=document.createElement("img");
+f.src=src;
 f.className="frieren-character";
-
-const img=document.createElement("img");
-img.src=src;
-
-f.appendChild(img);
 document.body.appendChild(f);
 
 f.style.left=Math.random()*80+"vw";
 f.style.top=Math.random()*70+"vh";
 
-frierens.push(f);
+f.onclick=()=>active=f;
 
-f.onclick=()=>{
-activeFollower=f;
-f.style.transform="translateY(-50px)";
-music.currentTime=0;
-music.play();
-setTimeout(()=>f.style.transform="none",400);
-};
+frierens.push(f);
 });
 
 document.addEventListener("mousemove",(e)=>{
-if(activeFollower){
-activeFollower.style.left=(e.clientX-70)+"px";
-activeFollower.style.top=(e.clientY-70)+"px";
+if(active){
+active.style.left=(e.clientX-70)+"px";
+active.style.top=(e.clientY-70)+"px";
 }
 });
 
 setInterval(()=>{
 frierens.forEach(f=>{
-if(f!==activeFollower){
+if(f!==active){
 f.style.left=Math.random()*90+"vw";
 f.style.top=Math.random()*90+"vh";
 }
@@ -352,18 +280,18 @@ f.style.top=Math.random()*90+"vh";
 },2000);
 
 // sky
-const canvas=document.getElementById('sky');
-const ctx=canvas.getContext('2d');
-canvas.width=innerWidth;
-canvas.height=innerHeight;
+const c=document.getElementById('sky');
+const ctx=c.getContext('2d');
+c.width=innerWidth;
+c.height=innerHeight;
 
 let stars=[];
 for(let i=0;i<100;i++){
-stars.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2});
+stars.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*2});
 }
 
 function draw(){
-ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.clearRect(0,0,c.width,c.height);
 ctx.fillStyle="white";
 stars.forEach(s=>{
 ctx.beginPath();
@@ -377,22 +305,7 @@ draw();
 // sticker
 function openStickers(){document.getElementById("stickerPage").style.display="block";}
 function closeStickers(){document.getElementById("stickerPage").style.display="none";}
-
-// mouse trail
-document.addEventListener('mousemove',(e)=>{
-let dot=document.createElement('div');
-dot.style.position='fixed';
-dot.style.left=e.clientX+'px';
-dot.style.top=e.clientY+'px';
-dot.style.width='5px';
-dot.style.height='5px';
-dot.style.background='white';
-dot.style.borderRadius='50%';
-dot.style.zIndex='999';
-document.body.appendChild(dot);
-setTimeout(()=>dot.remove(),400);
-});
 </script>
 
 </body>
-</html>
+  </html>
