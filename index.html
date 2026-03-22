@@ -99,7 +99,7 @@ font-size:18px;
 /* frieren */
 .frieren-character{
 position:absolute;
-width:80px;
+width:150px;
 cursor:pointer;
 }
 
@@ -111,6 +111,88 @@ filter:drop-shadow(0 0 6px rgba(0,0,0,0.6));
 
 @keyframes float{
 50%{transform:translateY(-10px)}
+}
+
+/* ☁️ STICKER SKY PAGE */
+.page{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(to bottom,#87CEEB,#e0f7ff);
+display:none;
+z-index:9999;
+overflow:hidden;
+padding:20px;
+text-align:center;
+}
+
+/* content above clouds */
+.page .links{
+position:relative;
+z-index:2;
+}
+
+/* back */
+.back{
+position:fixed;
+top:10px;
+left:10px;
+padding:8px 12px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+z-index:3;
+}
+
+/* ☁️ clouds */
+.cloud{
+position:absolute;
+background:white;
+border-radius:50%;
+opacity:0.8;
+animation:cloudMove linear infinite;
+}
+
+.cloud::before,
+.cloud::after{
+content:'';
+position:absolute;
+background:white;
+border-radius:50%;
+}
+
+.cloud::before{
+width:60px;height:60px;
+top:-20px;left:10px;
+}
+
+.cloud::after{
+width:80px;height:80px;
+top:-30px;left:40px;
+}
+
+.cloud1{width:120px;height:60px;top:20%;animation-duration:40s;}
+.cloud2{width:100px;height:50px;top:50%;animation-duration:30s;}
+.cloud3{width:140px;height:70px;top:70%;animation-duration:50s;}
+
+@keyframes cloudMove{
+0%{left:-200px;}
+100%{left:110%;}
+}
+
+/* 🐦 birds */
+.bird{
+position:absolute;
+font-size:20px;
+animation:fly 10s linear infinite;
+}
+
+@keyframes fly{
+0%{left:-50px;top:20%;}
+50%{top:10%;}
+100%{left:110%;top:25%;}
 }
 </style>
 </head>
@@ -142,6 +224,42 @@ filter:drop-shadow(0 0 6px rgba(0,0,0,0.6));
 <a href="https://t.me/Matthew1128NIV" class="link-button">📖 God's Words</a>
 <a href="https://t.me/Formeforusforyou" class="link-button">🙏 Worship song</a>
 <a href="https://padlet.com/serialollipoop/freedom-wall-fqxswoovty9lok4s" class="link-button">💭 Freedom Wall</a>
+
+<a href="#" onclick="openStickers()" class="link-button">🎨 Sticker Packs</a>
+</div>
+
+</div>
+
+<!-- ☁️ STICKER PAGE -->
+<div id="stickerPage" class="page">
+
+<button onclick="closeStickers()" class="back">⬅ Back</button>
+
+<!-- clouds -->
+<div class="cloud cloud1"></div>
+<div class="cloud cloud2"></div>
+<div class="cloud cloud3"></div>
+
+<!-- birds -->
+<div class="bird">🐦</div>
+<div class="bird" style="animation-delay:3s;">🐦</div>
+<div class="bird" style="animation-delay:6s;">🐦</div>
+
+<h2>✨ Sticker Packs ✨</h2>
+
+<div class="links">
+<a href="https://t.me/addstickers/Dino_kuning_by_fStikBot" class="link-button">🦖 Dino Kuning</a>
+<a href="https://t.me/addstickers/video2084685332_by_Zeroo_Twoo_Bot" class="link-button">💙 Zinc Fav</a>
+<a href="https://t.me/addstickers/Zinxcca_by_fStikBot" class="link-button">🐒 White Monkey</a>
+<a href="https://t.me/addstickers/yellowfatdragon_by_fStikBot" class="link-button">🐉 Nailong</a>
+<a href="https://t.me/addstickers/Cote_Cherries_by_fStikBot" class="link-button">🍒 Cote Cherry</a>
+<a href="https://t.me/addstickers/animated_2084685332_by_rNatalie_bot" class="link-button">🔥 Buttazz</a>
+<a href="https://t.me/addstickers/a2084685332_by_rNatalie_bot" class="link-button">🥥 Coconut</a>
+<a href="https://t.me/addstickers/Qoobeeagapito_by_fStikBot" class="link-button">🐝 Qoobee</a>
+<a href="https://t.me/addstickers/theachan_by_fStikBot" class="link-button">👭 Sisters</a>
+<a href="https://t.me/addstickers/anivid_2084685332_by_rNatalie_bot" class="link-button">🍯 Zinsyrups</a>
+<a href="https://t.me/addstickers/animated2084685332_by_Zeroo_Twoo_Bot" class="link-button">⚡ ASL</a>
+<a href="https://t.me/addstickers/junji_love_by_fStikBot" class="link-button">❤️ Junji</a>
 </div>
 
 </div>
@@ -151,7 +269,7 @@ filter:drop-shadow(0 0 6px rgba(0,0,0,0.6));
 </audio>
 
 <script>
-// 🌙 Theme
+// theme
 const body=document.body;
 const themeBtn=document.getElementById('themeToggle');
 
@@ -167,7 +285,7 @@ themeBtn.textContent=dark?'☀️':'🌙';
 localStorage.setItem('theme',dark?'dark':'light');
 };
 
-// 🎵 Music
+// music
 const music=document.getElementById('bgMusic');
 const musicBtn=document.getElementById('musicToggle');
 let playing=false;
@@ -188,93 +306,79 @@ playing=false;
 }
 };
 
-// 🧝 GIF Frieren
-const gifs = [
-"assets/frieren1.gif",
-"assets/frieren2.gif",
-"assets/frieren3.gif"
-];
-
-const frierens = [];
-let activeFollower = null;
+// frieren
+const gifs=["assets/frieren1.gif","assets/frieren2.gif","assets/frieren3.gif"];
+const frierens=[];
+let activeFollower=null;
 
 gifs.forEach(src=>{
-    const f = document.createElement("div");
-    f.className = "frieren-character";
+const f=document.createElement("div");
+f.className="frieren-character";
 
-    const img = document.createElement("img");
-    img.src = src;
+const img=document.createElement("img");
+img.src=src;
 
-    f.appendChild(img);
-    document.body.appendChild(f);
+f.appendChild(img);
+document.body.appendChild(f);
 
-    f.style.left = Math.random()*80 + "vw";
-    f.style.top = Math.random()*70 + "vh";
+f.style.left=Math.random()*80+"vw";
+f.style.top=Math.random()*70+"vh";
 
-    frierens.push(f);
+frierens.push(f);
 
-    f.onclick = ()=>{
-        activeFollower = f;
-
-        f.style.transform="translateY(-50px)";
-        music.currentTime=0;
-        music.play();
-
-        setTimeout(()=>f.style.transform="none",400);
-    };
+f.onclick=()=>{
+activeFollower=f;
+f.style.transform="translateY(-50px)";
+music.currentTime=0;
+music.play();
+setTimeout(()=>f.style.transform="none",400);
+};
 });
 
-// mouse follow
 document.addEventListener("mousemove",(e)=>{
-    if(activeFollower){
-        activeFollower.style.left = (e.clientX - 70) + "px";
-        activeFollower.style.top = (e.clientY - 70) + "px";
-        activeFollower.style.transition="0.2s linear";
-    }
+if(activeFollower){
+activeFollower.style.left=(e.clientX-70)+"px";
+activeFollower.style.top=(e.clientY-70)+"px";
+}
 });
 
-// random movement
 setInterval(()=>{
-    frierens.forEach(f=>{
-        if(f !== activeFollower){
-            f.style.left = Math.random()*90 + "vw";
-            f.style.top = Math.random()*90 + "vh";
-            f.style.transition="2s linear";
-        }
-    });
+frierens.forEach(f=>{
+if(f!==activeFollower){
+f.style.left=Math.random()*90+"vw";
+f.style.top=Math.random()*90+"vh";
+}
+});
 },2000);
 
-// 🌌 sky
+// sky
 const canvas=document.getElementById('sky');
 const ctx=canvas.getContext('2d');
-
 canvas.width=innerWidth;
 canvas.height=innerHeight;
 
 let stars=[];
 for(let i=0;i<100;i++){
-stars.push({
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-r:Math.random()*2
-});
+stars.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2});
 }
 
 function draw(){
 ctx.clearRect(0,0,canvas.width,canvas.height);
 ctx.fillStyle="white";
-
 stars.forEach(s=>{
 ctx.beginPath();
 ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
 ctx.fill();
 });
-
 requestAnimationFrame(draw);
 }
 draw();
 
-// 🎮 mouse trail
+// sticker
+function openStickers(){document.getElementById("stickerPage").style.display="block";}
+function closeStickers(){document.getElementById("stickerPage").style.display="none";}
+
+// mouse trail
 document.addEventListener('mousemove',(e)=>{
 let dot=document.createElement('div');
 dot.style.position='fixed';
@@ -286,7 +390,6 @@ dot.style.background='white';
 dot.style.borderRadius='50%';
 dot.style.zIndex='999';
 document.body.appendChild(dot);
-
 setTimeout(()=>dot.remove(),400);
 });
 </script>
