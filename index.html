@@ -19,7 +19,7 @@
 
 body.dark{
 --bg:#0d1025;
---text:#fff;
+--text:#ffffff;
 --card:rgba(255,255,255,0.1);
 }
 
@@ -46,6 +46,12 @@ padding:20px;
 width:120px;height:120px;border-radius:50%;
 }
 
+/* title */
+h1{
+font-family:'Cinzel';
+margin-top:10px;
+}
+
 /* links */
 .links{
 display:flex;
@@ -60,6 +66,11 @@ border-radius:18px;
 text-decoration:none;
 color:var(--text);
 background:var(--card);
+transition:.3s;
+}
+
+.link-button:hover{
+transform:scale(1.05);
 }
 
 /* controls */
@@ -81,6 +92,7 @@ gap:10px;
 z-index:999;
 }
 
+/* buttons */
 .control-btn{
 width:45px;height:45px;
 border-radius:50%;
@@ -88,29 +100,42 @@ border:none;
 cursor:pointer;
 }
 
-/* buttons */
+/* sticker */
 .sticker-btn{
-width:130px;height:45px;
+height:45px;
+padding:0 15px;
 border-radius:12px;
-background:#111;color:#fff;
+background:#fff3cd;
+color:#333;
+font-weight:bold;
+border:none;
+cursor:pointer;
 }
 
+/* birthday */
 .birthday-btn{
-width:60px;height:45px;
+height:45px;
+padding:0 15px;
 border-radius:12px;
-background:#ff4d6d;color:#fff;
+background:#ffd6e0;
+color:#333;
+font-weight:bold;
+border:none;
+cursor:pointer;
+}
+
+/* hover */
+.sticker-btn:hover,
+.birthday-btn:hover{
+transform:scale(1.05);
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
 /* frieren */
 .frieren-character{
 position:fixed;
-width:140px;
-pointer-events:auto;
+width:80px;
 z-index:2;
-}
-
-.frieren-character img{
-width:100%;
 }
 
 /* sticker page */
@@ -219,18 +244,18 @@ animation:fly 10s linear infinite;
 <h2>✨ Sticker Packs ✨</h2>
 
 <div class="links">
-<a href="https://t.me/addstickers/Dino_kuning_by_fStikBot">Dino</a>
-<a href="https://t.me/addstickers/video2084685332_by_Zeroo_Twoo_Bot">Zinc Fav</a>
-<a href="https://t.me/addstickers/Zinxcca_by_fStikBot">Monkey</a>
-<a href="https://t.me/addstickers/yellowfatdragon_by_fStikBot">Dragon</a>
-<a href="https://t.me/addstickers/Cote_Cherries_by_fStikBot">Cherry</a>
-<a href="https://t.me/addstickers/animated_2084685332_by_rNatalie_bot">Buttazz</a>
-<a href="https://t.me/addstickers/a2084685332_by_rNatalie_bot">Coconut</a>
-<a href="https://t.me/addstickers/Qoobeeagapito_by_fStikBot">Qoobee</a>
-<a href="https://t.me/addstickers/theachan_by_fStikBot">Sisters</a>
-<a href="https://t.me/addstickers/anivid_2084685332_by_rNatalie_bot">Zinsyrups</a>
-<a href="https://t.me/addstickers/animated2084685332_by_Zeroo_Twoo_Bot">ASL</a>
-<a href="https://t.me/addstickers/junji_love_by_fStikBot">Junji</a>
+<a href="https://t.me/addstickers/Dino_kuning_by_fStikBot" class="link-button">🦖 Dino Kuning</a>
+<a href="https://t.me/addstickers/video2084685332_by_Zeroo_Twoo_Bot" class="link-button">💙 Zinc Fav</a>
+<a href="https://t.me/addstickers/Zinxcca_by_fStikBot" class="link-button">🐒 White Monkey</a>
+<a href="https://t.me/addstickers/yellowfatdragon_by_fStikBot" class="link-button">🐉 Nailong</a>
+<a href="https://t.me/addstickers/Cote_Cherries_by_fStikBot" class="link-button">🍒 Cote Cherry</a>
+<a href="https://t.me/addstickers/animated_2084685332_by_rNatalie_bot" class="link-button">🔥 Buttazz</a>
+<a href="https://t.me/addstickers/a2084685332_by_rNatalie_bot" class="link-button">🥥 Coconut</a>
+<a href="https://t.me/addstickers/Qoobeeagapito_by_fStikBot" class="link-button">🐝 Qoobee</a>
+<a href="https://t.me/addstickers/theachan_by_fStikBot" class="link-button">👭 Sisters</a>
+<a href="https://t.me/addstickers/anivid_2084685332_by_rNatalie_bot" class="link-button">🍯 Zinsyrups</a>
+<a href="https://t.me/addstickers/animated2084685332_by_Zeroo_Twoo_Bot" class="link-button">⚡ ASL</a>
+<a href="https://t.me/addstickers/junji_love_by_fStikBot" class="link-button">❤️ Junji</a>
 </div>
 
 </div>
@@ -253,7 +278,7 @@ playing?music.pause():music.play();
 playing=!playing;
 };
 
-// frieren FIXED
+// frieren
 const gifs=["assets/frieren1.gif","assets/frieren2.gif","assets/frieren3.gif"];
 const frierens=[];
 let active=null;
