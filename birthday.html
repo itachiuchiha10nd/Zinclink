@@ -1,0 +1,155 @@
+here<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Wall 🎂</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:sans-serif;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+padding:20px;
+overflow-y:auto;
+}
+
+/* back button */
+.back{
+position:fixed;
+top:10px;
+left:10px;
+background:#fff;
+padding:8px 12px;
+border-radius:10px;
+text-decoration:none;
+color:#000;
+font-weight:bold;
+}
+
+/* title */
+h1{
+text-align:center;
+color:#fff;
+margin-bottom:20px;
+}
+
+/* masonry grid */
+.grid{
+column-count:2;
+column-gap:12px;
+}
+
+@media(max-width:600px){
+.grid{column-count:1;}
+}
+
+/* card */
+.card{
+display:inline-block;
+width:100%;
+margin-bottom:12px;
+padding:12px;
+border-radius:15px;
+break-inside:avoid;
+box-shadow:0 5px 12px rgba(0,0,0,0.15);
+}
+
+/* content */
+.card h3{
+margin-bottom:5px;
+}
+
+.card img{
+width:100%;
+border-radius:10px;
+margin-top:6px;
+}
+
+.card audio{
+width:100%;
+margin-top:6px;
+}
+</style>
+</head>
+
+<body>
+
+<a href="index.html" class="back">⬅ Back</a>
+
+<h1>🎂 Birthday Wall 🎂</h1>
+
+<div class="grid" id="wall"></div>
+
+<script>
+
+// 🧠 MANUAL WISHES (EDIT HERE)
+let wishes = [
+
+{
+title:"Happy Birthday 🎂",
+msg:"Stay blessed bro 💖",
+color:"#ffd6e0"
+},
+
+{
+title:"Zinc 🔥",
+msg:"Best admin ever 😎",
+color:"#d6f0ff"
+},
+
+{
+title:"From Priya 💖",
+msg:"Happy birthdayyy!! 🎉✨",
+color:"#fff3cd"
+},
+
+{
+title:"Cute Message 🥰",
+msg:"Stay happy always 🌸",
+color:"#d4edda"
+},
+
+{
+title:"祝你生日快乐 🎉",
+msg:"Enjoy your day 🎂✨",
+color:"#ffe0f0",
+img:"https://i.imgur.com/3ZQ3ZQy.png"
+},
+
+{
+title:"Music Wish 🎵",
+msg:"Ye gaana tere liye 💖",
+color:"#e0f7fa",
+audio:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+}
+
+];
+
+// render
+const wall=document.getElementById("wall");
+
+function render(){
+wall.innerHTML="";
+
+wishes.forEach(w=>{
+wall.innerHTML+=`
+<div class="card" style="background:${w.color}">
+<h3>${w.title}</h3>
+<p>${w.msg}</p>
+
+${w.img ? `<img src="${w.img}">` : ""}
+${w.audio ? `<audio controls src="${w.audio}"></audio>` : ""}
+
+</div>
+`;
+});
+}
+
+render();
+
+</script>
+
+</body>
+  </html>
