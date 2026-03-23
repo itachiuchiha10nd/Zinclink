@@ -36,16 +36,22 @@ color:#fff;
 margin-bottom:20px;
 }
 
-/* wall */
+/* grid layout */
 .wall{
-display:flex;
-flex-direction:column;
+display:grid;
+grid-template-columns:1fr 1fr;
 gap:20px;
+}
+
+/* mobile fix */
+@media(max-width:700px){
+.wall{
+grid-template-columns:1fr;
+}
 }
 
 /* card */
 .card{
-width:80%;
 padding:15px;
 border-radius:15px;
 box-shadow:0 5px 20px rgba(0,0,0,0.2);
@@ -57,43 +63,10 @@ transition:.3s;
 transform:scale(1.02);
 }
 
-/* zigzag */
-.left{align-self:flex-start;}
-.right{align-self:flex-end;}
-
 .card img{
 width:100%;
 margin-top:10px;
 border-radius:10px;
-}
-
-/* add form */
-.add-box{
-margin-top:30px;
-background:#ffffffaa;
-padding:15px;
-border-radius:15px;
-}
-
-.add-box input,
-.add-box textarea{
-width:100%;
-margin:5px 0;
-padding:10px;
-border:none;
-border-radius:10px;
-}
-
-.add-box button{
-margin-top:10px;
-padding:10px;
-width:100%;
-border:none;
-border-radius:10px;
-background:#ff7eb3;
-color:#fff;
-font-weight:bold;
-cursor:pointer;
 }
 </style>
 </head>
@@ -106,15 +79,6 @@ cursor:pointer;
 
 <div class="wall" id="wall"></div>
 
-<!-- ADD FEATURE -->
-<div class="add-box">
-<h3>Add Wish 💌</h3>
-<input type="text" id="title" placeholder="Title">
-<textarea id="msg" placeholder="Message"></textarea>
-<input type="text" id="img" placeholder="Image URL (optional)">
-<button onclick="addNewWish()">Add Wish</button>
-</div>
-
 <!-- LOAD WISHES -->
 <script src="wishes.js"></script>
 
@@ -122,43 +86,15 @@ cursor:pointer;
 const wall=document.getElementById("wall");
 
 /* render */
-function render(){
-wall.innerHTML="";
-wishes.forEach((w,i)=>{
+wishes.forEach(w=>{
 wall.innerHTML+=`
-<div class="card ${i%2===0?'left':'right'}" style="background:${w.color}">
+<div class="card" style="background:${w.color}">
 <h3>${w.title || "Birthday Wish 🎂"}</h3>
 <p>${w.msg}</p>
 ${w.img ? `<img src="${w.img}">` : ""}
 </div>
 `;
 });
-}
-
-render();
-
-/* add new */
-function addNewWish(){
-const title=document.getElementById("title").value;
-const msg=document.getElementById("msg").value;
-const img=document.getElementById("img").value;
-
-if(!msg) return alert("Message required!");
-
-wishes.push({
-title:title,
-msg:msg,
-img:img,
-color:"#ffffff"
-});
-
-render();
-
-/* clear */
-document.getElementById("title").value="";
-document.getElementById("msg").value="";
-document.getElementById("img").value="";
-}
 </script>
 
 </body>
