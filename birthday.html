@@ -9,7 +9,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-font-family:sans-serif;
+font-family:'Segoe UI',sans-serif;
 background:linear-gradient(135deg,#ff9a9e,#fad0c4);
 padding:20px;
 overflow-y:auto;
@@ -26,6 +26,7 @@ border-radius:10px;
 text-decoration:none;
 color:#000;
 font-weight:bold;
+z-index:1000;
 }
 
 /* title */
@@ -35,26 +36,65 @@ color:#fff;
 margin-bottom:20px;
 }
 
-/* layout */
+/* wall */
 .wall{
 display:flex;
 flex-direction:column;
-gap:15px;
+gap:20px;
 }
 
-/* cards */
+/* card */
 .card{
 width:80%;
 padding:15px;
 border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,0.15);
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
 white-space:pre-line;
+transition:.3s;
 }
 
-/* zig-zag */
+.card:hover{
+transform:scale(1.02);
+}
+
+/* zigzag */
 .left{align-self:flex-start;}
 .right{align-self:flex-end;}
 
+.card img{
+width:100%;
+margin-top:10px;
+border-radius:10px;
+}
+
+/* add form */
+.add-box{
+margin-top:30px;
+background:#ffffffaa;
+padding:15px;
+border-radius:15px;
+}
+
+.add-box input,
+.add-box textarea{
+width:100%;
+margin:5px 0;
+padding:10px;
+border:none;
+border-radius:10px;
+}
+
+.add-box button{
+margin-top:10px;
+padding:10px;
+width:100%;
+border:none;
+border-radius:10px;
+background:#ff7eb3;
+color:#fff;
+font-weight:bold;
+cursor:pointer;
+}
 </style>
 </head>
 
@@ -66,132 +106,59 @@ white-space:pre-line;
 
 <div class="wall" id="wall"></div>
 
+<!-- ADD FEATURE -->
+<div class="add-box">
+<h3>Add Wish 💌</h3>
+<input type="text" id="title" placeholder="Title">
+<textarea id="msg" placeholder="Message"></textarea>
+<input type="text" id="img" placeholder="Image URL (optional)">
+<button onclick="addNewWish()">Add Wish</button>
+</div>
+
+<!-- LOAD WISHES -->
+<script src="wishes.js"></script>
+
 <script>
-
-let wishes = [
-
-{
-title:"Happy birthday zinx",
-msg:`Hey zinx, so it's your special day ummm... So a very happy birthday to u, wishing you success and prosperity for the rest of your lyf and may you get the best in yo lyf and also a good soulmate (hint: he's indian and prob you're pretty much familiar with him)`,
-color:"#ffffff"
-},
-
-{
-title:"Maligayang kaarawan, Zinc!",
-msg:`Manatiling cute hehehe
-
-^ ciawee`,
-color:"#ffffff"
-},
-
-{
-title:"Happiest Birthday Zincupieee",
-msg:`HAPPY BIRTHDAY, BEAUTIFUL you're not just gorgeous on the outside—you've got this way of lighting up the world with your kindness and love. You make everyone around you feel so special (me included!) You're the kind of friend who brings out the best in people just by being yourself. Love you so much—hope today is as amazing as you are!`,
-color:"#fff3cd"
-},
-
-{
-title:"hello zinccoo!",
-msg:`happy birthday to the lovely & strongest women here! always been amazed by how u always stand up straight during the hard times. although i haven't interact with you much, i am so lucky to meet you. i wish you all the happiness in the world may your day be filled with love and genuine happiness. happy birthday again.
-
-loveusm!!
-
-see you soonest zinc! be who you are, be alive and be brave!
-
-;zj`,
-color:"#d6f0ff"
-},
-
-{
-title:"Happieeeeee birthdayyyy Zincutiee!!💘✨",
-msg:`My cutesttt daughter!!! Idk what's your age, But keep slayinnn this year as you always dooo!! Your voice choo cutee (tho i don't understand what you say sometimes) !!! Mommy loves youuu sm!!! happiest birthday 🎈🌷!!
-
--From your mommm (Janaaa.)🎀`,
-color:"#ffd6e0"
-},
-
-{
-title:"Happy birthday cutee💗",
-msg:`This birthday you might get more cuterrrrr🌷💖💘❣️
-
-..............................................by lring💘💕`,
-color:"#fce5cd"
-},
-
-{
-title:"Birthday Appreciation 💚",
-msg:`finally, dumating na totoong habadu mo HAHA. happy birthdayyy, zinqt! 🍰🥂✨ thank you for being a good friend to me (and to everyone) kahit di na ako masyado palaimik nowadays. i really appreciate na whenever some things come up, nags-share ka pa rin sakin. and tina-tag mo ako pag may naaalala ka haha. makes me remember na "ah! may buhay pala ako rito sa tg" "may mga kaibigan pala ako rito" kasi tbh, there are times na i feel alone, sad, empty even. kinda melodramatic, but yeah HAHA
-
-thank you, beh. im happy na nakilala kita at pinapasok mo ko sa ludum, ginawang admin pa haha. ang dali mo pakisamahan; honestly, ang bait mo, ang dami mong kwento. pareho rin tayo na di maka-settle sa isang bagay, ang daming gustong gawin, ang daming hilig. and nagpapasalamat din ako sayo kasi kung di dahil sayo di ko mae-experience na mag-dub, nag-enjoy ako haha. pati ron sa morse code. matagal ko na yun kinalimutan e, nong hs pa ako at era pa ng detective loki. binalik mo ko huhu.
-
-but anw, di na ata 'to birthday greeting na ginagawa ko kundi appreciation post wadahel. but honestly, i really admire your personality. stay just the way you are lang! but at the same time, dont feel like you have to force yourself to remain consistent, esp on days when youre not feeling like yourself. its okay not to be okay. and if you ever need someone to talk to, im here lang. at kung stressed ka about sa physics or anything math-related tandaan mo na wala ako rito HAHA charot. anw, best wishes sayo! good luck sa lahat ng gagawin mo sa life. sa lahat ng plano mo. take care alwaysss. and enjoy your day with your fam and friends. mwa.`,
-color:"#d4edda"
-},
-
-{
-title:"HBD",
-msg:`-ritk`,
-color:"#e6ffe6"
-},
-
-{
-title:"Happy Birthday!",
-msg:`Happy Birthday, and remember, when you celebrate, you celebrate like a storm breaching every dam of doubt!
-
-Now get out there and own it, because if anyone can make this day epic, it’s you!`,
-color:"#ffccd5"
-},
-
-{
-title:"happy birthday, zincutie! 💗",
-msg:`hiiii, i know we only know each other for like a few months but we clicked instantly haha maybe because we have the same nationality or maybe because we’re meant to become friends, and i am glad i got to meet you. you’re a strong girl, you know what you want which i could never and i am so proud of you for that.
-
-happy happy birthday, zinc! i wish you good health and i hope you reach your dreams and goals in life. we love you so much!! 💗
-
-– yeshi`,
-color:"#e6ccff"
-},
-
-{
-title:"Birthday Wish 🎈",
-msg:`happy birthday ZINK 🎈🎉 🎂
-
-may be your special day filled with happiness and lots of love. remember you are special 😇.
-
-TΛZ`,
-color:"#ccffcc"
-},
-
-{
-title:"Happy Birthday Zinchard! 🍟",
-msg:`I Hope you will able to eat how many fries you want this day, dont worry about money, i'll pay for you! Happy birthday💖
-
--FruFru`,
-color:"#fce5cd"
-},
-
-{
-title:"hello gandaaaaa 💜",
-msg:`happiest birthday sayooooo. ang wish q for u is to be genuinely happy and i hope na merong kang peace of mind. sana maging masaya ang araw mo today coz it's ur birthday, its ur special day. and also sana lahat ng hihilingin mo or like dreams mo is makuha/matupad mo. and i just wanna sayyyy thank u for being one of my tg friendsss. sana mas maging close pa tayoooo and hope to see u soon. luv u gandaaa 🫶🏻🫶🏻
-
---omscutie 🥳`,
-color:"#e6ccff"
-}
-
-];
-
-// render
 const wall=document.getElementById("wall");
 
+/* render */
+function render(){
+wall.innerHTML="";
 wishes.forEach((w,i)=>{
 wall.innerHTML+=`
 <div class="card ${i%2===0?'left':'right'}" style="background:${w.color}">
-<h3>${w.title}</h3>
+<h3>${w.title || "Birthday Wish 🎂"}</h3>
 <p>${w.msg}</p>
+${w.img ? `<img src="${w.img}">` : ""}
 </div>
 `;
 });
+}
 
+render();
+
+/* add new */
+function addNewWish(){
+const title=document.getElementById("title").value;
+const msg=document.getElementById("msg").value;
+const img=document.getElementById("img").value;
+
+if(!msg) return alert("Message required!");
+
+wishes.push({
+title:title,
+msg:msg,
+img:img,
+color:"#ffffff"
+});
+
+render();
+
+/* clear */
+document.getElementById("title").value="";
+document.getElementById("msg").value="";
+document.getElementById("img").value="";
+}
 </script>
 
 </body>
