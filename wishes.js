@@ -137,6 +137,7 @@ LOVE YOU 🎀❤️
 msg:``,
 img:`https://files.catbox.moe/py2dug.jpg`,
 color:`linear-gradient(135deg,#e6ccff,#ffc0cb)`
+pinned:true
 });
 
 addWish({
@@ -258,6 +259,7 @@ Happy birthday to someone who is smart, gorgeous, funny and reminds me a lot of 
 -priyaa`,
 img:`https://files.catbox.moe/q817ct.jpg`,
 color:"#ffd6e0"
+pinned:true
 });
 
 addWish({
@@ -416,4 +418,5 @@ Looking forward to being your sister and ally in this life, for a long, long tim
 With all the love and admiration in my heart,  
 Ren 🤍`,
 color:"#ff9999"
+pinned:true
 });
