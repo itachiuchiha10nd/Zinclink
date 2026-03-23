@@ -10,6 +10,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
+/* theme */
 :root{
 --bg:#a8d8ea;
 --text:#2c3e50;
@@ -27,11 +28,12 @@ background:var(--bg);
 color:var(--text);
 font-family:'Quicksand',sans-serif;
 overflow:hidden;
-transition:.4s;
 }
 
-canvas{position:fixed;top:0;left:0;z-index:0;}
+/* canvas */
+canvas{position:fixed;top:0;left:0;z-index:0}
 
+/* container */
 .container{
 position:relative;
 z-index:1;
@@ -39,12 +41,12 @@ text-align:center;
 padding:20px;
 }
 
+/* profile */
 .profile img{
 width:120px;height:120px;border-radius:50%;
 }
 
-h1{font-family:'Cinzel';margin-top:10px;}
-
+/* links */
 .links{
 display:flex;
 flex-direction:column;
@@ -58,13 +60,19 @@ border-radius:18px;
 text-decoration:none;
 color:var(--text);
 background:var(--card);
-transition:.3s;
 }
 
-.link-button:hover{transform:scale(1.05);}
-
 /* controls */
-.controls{
+.controls-left{
+position:fixed;
+top:10px;
+left:10px;
+display:flex;
+gap:10px;
+z-index:999;
+}
+
+.controls-right{
 position:fixed;
 top:10px;
 right:10px;
@@ -75,35 +83,34 @@ z-index:999;
 
 .control-btn{
 width:45px;height:45px;
-border:none;border-radius:50%;
+border-radius:50%;
+border:none;
 cursor:pointer;
 }
 
-/* sticker button */
+/* buttons */
 .sticker-btn{
 width:130px;height:45px;
 border-radius:12px;
-background:#111;
-color:#fff;
-font-weight:bold;
-display:flex;
-align-items:center;
-justify-content:center;
+background:#111;color:#fff;
+}
+
+.birthday-btn{
+width:60px;height:45px;
+border-radius:12px;
+background:#ff4d6d;color:#fff;
 }
 
 /* frieren */
 .frieren-character{
-position:absolute;
-width:80px;
+position:fixed;
+width:140px;
+pointer-events:auto;
+z-index:2;
 }
 
 .frieren-character img{
 width:100%;
-animation:float 3s infinite;
-}
-
-@keyframes float{
-50%{transform:translateY(-10px)}
 }
 
 /* sticker page */
@@ -119,15 +126,12 @@ padding:20px;
 text-align:center;
 }
 
-.page .links{position:relative;z-index:2;}
+.page .links{position:relative;z-index:2}
 
 .back{
 position:fixed;
 top:10px;
 left:10px;
-padding:8px 12px;
-border:none;
-border-radius:10px;
 }
 
 /* clouds */
@@ -166,10 +170,16 @@ animation:fly 10s linear infinite;
 
 <canvas id="sky"></canvas>
 
-<div class="controls">
+<!-- LEFT -->
+<div class="controls-left">
+<button class="sticker-btn" onclick="openStickers()">ZINC STICKER 🍭</button>
+<button class="birthday-btn" onclick="openBirthday()">🎂</button>
+</div>
+
+<!-- RIGHT -->
+<div class="controls-right">
 <button class="control-btn" id="themeToggle">🌙</button>
 <button class="control-btn" id="musicToggle">🎵</button>
-<button class="sticker-btn" onclick="openStickers()">ZINC STICKER 🍭</button>
 </div>
 
 <div class="container">
@@ -194,10 +204,10 @@ animation:fly 10s linear infinite;
 
 </div>
 
-<!-- sticker page -->
+<!-- STICKER PAGE -->
 <div id="stickerPage" class="page">
 
-<button onclick="closeStickers()" class="back">⬅ Back</button>
+<button onclick="closeStickers()" class="back">⬅</button>
 
 <div class="cloud cloud1"></div>
 <div class="cloud cloud2"></div>
@@ -209,18 +219,18 @@ animation:fly 10s linear infinite;
 <h2>✨ Sticker Packs ✨</h2>
 
 <div class="links">
-<a href="https://t.me/addstickers/Dino_kuning_by_fStikBot" class="link-button">🦖 Dino Kuning (120)</a>
-<a href="https://t.me/addstickers/video2084685332_by_Zeroo_Twoo_Bot" class="link-button">💙 Zinc Fav (98)</a>
-<a href="https://t.me/addstickers/Zinxcca_by_fStikBot" class="link-button">🐒 White Monkey (93)</a>
-<a href="https://t.me/addstickers/yellowfatdragon_by_fStikBot" class="link-button">🐉 Nailong (30)</a>
-<a href="https://t.me/addstickers/Cote_Cherries_by_fStikBot" class="link-button">🍒 Cote Cherry (77)</a>
-<a href="https://t.me/addstickers/animated_2084685332_by_rNatalie_bot" class="link-button">🔥 Buttazz (24)</a>
-<a href="https://t.me/addstickers/a2084685332_by_rNatalie_bot" class="link-button">🥥 Coconut (17)</a>
-<a href="https://t.me/addstickers/Qoobeeagapito_by_fStikBot" class="link-button">🐝 Qoobee (120)</a>
-<a href="https://t.me/addstickers/theachan_by_fStikBot" class="link-button">👭 Sisters (40)</a>
-<a href="https://t.me/addstickers/anivid_2084685332_by_rNatalie_bot" class="link-button">🍯 Zinsyrups (12)</a>
-<a href="https://t.me/addstickers/animated2084685332_by_Zeroo_Twoo_Bot" class="link-button">⚡ ASL (27)</a>
-<a href="https://t.me/addstickers/junji_love_by_fStikBot" class="link-button">❤️ Junji (41)</a>
+<a href="https://t.me/addstickers/Dino_kuning_by_fStikBot">Dino</a>
+<a href="https://t.me/addstickers/video2084685332_by_Zeroo_Twoo_Bot">Zinc Fav</a>
+<a href="https://t.me/addstickers/Zinxcca_by_fStikBot">Monkey</a>
+<a href="https://t.me/addstickers/yellowfatdragon_by_fStikBot">Dragon</a>
+<a href="https://t.me/addstickers/Cote_Cherries_by_fStikBot">Cherry</a>
+<a href="https://t.me/addstickers/animated_2084685332_by_rNatalie_bot">Buttazz</a>
+<a href="https://t.me/addstickers/a2084685332_by_rNatalie_bot">Coconut</a>
+<a href="https://t.me/addstickers/Qoobeeagapito_by_fStikBot">Qoobee</a>
+<a href="https://t.me/addstickers/theachan_by_fStikBot">Sisters</a>
+<a href="https://t.me/addstickers/anivid_2084685332_by_rNatalie_bot">Zinsyrups</a>
+<a href="https://t.me/addstickers/animated2084685332_by_Zeroo_Twoo_Bot">ASL</a>
+<a href="https://t.me/addstickers/junji_love_by_fStikBot">Junji</a>
 </div>
 
 </div>
@@ -231,9 +241,8 @@ animation:fly 10s linear infinite;
 
 <script>
 // theme
-const body=document.body;
 document.getElementById('themeToggle').onclick=()=>{
-body.classList.toggle('dark');
+document.body.classList.toggle('dark');
 };
 
 // music
@@ -244,7 +253,7 @@ playing?music.pause():music.play();
 playing=!playing;
 };
 
-// frieren
+// frieren FIXED
 const gifs=["assets/frieren1.gif","assets/frieren2.gif","assets/frieren3.gif"];
 const frierens=[];
 let active=null;
@@ -275,6 +284,7 @@ frierens.forEach(f=>{
 if(f!==active){
 f.style.left=Math.random()*90+"vw";
 f.style.top=Math.random()*90+"vh";
+f.style.transition="2s linear";
 }
 });
 },2000);
@@ -303,9 +313,18 @@ requestAnimationFrame(draw);
 draw();
 
 // sticker
-function openStickers(){document.getElementById("stickerPage").style.display="block";}
-function closeStickers(){document.getElementById("stickerPage").style.display="none";}
+function openStickers(){
+document.getElementById("stickerPage").style.display="block";
+}
+function closeStickers(){
+document.getElementById("stickerPage").style.display="none";
+}
+
+// birthday
+function openBirthday(){
+window.location.href="birthday.html";
+}
 </script>
 
 </body>
-  </html>
+</html>
