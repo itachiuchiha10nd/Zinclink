@@ -8,7 +8,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
-/* 🌸 LIGHT BACKGROUND IMAGE */
+/* 🌸 background */
 body{
 font-family:'Segoe UI',sans-serif;
 background:
@@ -18,10 +18,9 @@ background-size:cover;
 background-position:center;
 background-attachment:fixed;
 padding:20px;
-color:#000;
 }
 
-/* back button */
+/* back */
 .back{
 position:fixed;
 top:10px;
@@ -40,30 +39,36 @@ text-align:center;
 margin-bottom:20px;
 }
 
-/* masonry layout */
+/* 🎯 2 COLUMN LAYOUT */
 .wall{
-column-count:2;
-column-gap:15px;
+display:flex;
+gap:15px;
 }
 
+.column{
+flex:1;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+/* 📱 mobile */
 @media(max-width:700px){
-.wall{column-count:1;}
+.wall{
+flex-direction:column;
+}
 }
 
-/* cards */
+/* 🎂 card */
 .card{
-display:inline-block;
-width:100%;
-margin-bottom:15px;
 padding:15px;
 border-radius:15px;
 box-shadow:0 5px 20px rgba(0,0,0,0.2);
-white-space:pre-line;
-break-inside:avoid;
 
 background:rgba(255,255,255,0.75);
 backdrop-filter:blur(10px);
 
+white-space:pre-line;
 transition:.3s;
 }
 
@@ -93,29 +98,33 @@ border-radius:10px;
 
 <h1>🎂 Birthday Wall 🎂</h1>
 
-<div class="wall" id="wall"></div>
+<div class="wall">
+<div class="column" id="left"></div>
+<div class="column" id="right"></div>
+</div>
 
-<!-- wishes data -->
-<script src="./wishes.js?v=5"></script>
+<script src="./wishes.js?v=6"></script>
 
 <script>
 window.onload = function(){
 
-const wall = document.getElementById("wall");
+const left = document.getElementById("left");
+const right = document.getElementById("right");
 
-/* safety check */
 if(typeof wishes === "undefined"){
-wall.innerHTML = "<h2 style='color:red;text-align:center'>❌ wishes.js not loaded</h2>";
+document.body.innerHTML = "<h2 style='color:red;text-align:center'>❌ wishes.js not loaded</h2>";
 return;
 }
 
-/* render wishes */
-wishes.forEach(w=>{
-wall.innerHTML += `
-<div class="card" style="background:${w.color || 'rgba(255,255,255,0.75)'}">
+/* 🎯 split wishes */
+wishes.forEach((w, i)=>{
 
+let card = document.createElement("div");
+card.className="card";
+card.style.background = w.color || "rgba(255,255,255,0.75)";
+
+card.innerHTML = `
 <h3>${w.title || "Birthday Wish 🎂"}</h3>
-
 <p>${w.msg || ""}</p>
 
 ${w.img ? `<img src="${w.img}">` : ""}
@@ -125,9 +134,15 @@ ${w.audio ? `
 <source src="${w.audio}" type="audio/mpeg">
 </audio>
 ` : ""}
-
-</div>
 `;
+
+/* even → left, odd → right */
+if(i % 2 === 0){
+left.appendChild(card);
+}else{
+right.appendChild(card);
+}
+
 });
 
 };
