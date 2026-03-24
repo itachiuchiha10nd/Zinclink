@@ -190,7 +190,7 @@ May this year bring you a lot of happiness and make you bloom into a stronger pe
 Have a great birthday, zincotieee💕⭐️
 
 From your sissy, Thea🧚‍♀️`,
-color:"#ffd6e0"
+color:"#ffd6e0",
 audio:"assets/voice1.mp3"
 });
 
