@@ -192,6 +192,7 @@ Have a great birthday, zincotieee💕⭐️
 
 From your sissy, Thea🧚‍♀️`,
 color:"#ffd6e0"
+audio: "assets/voice1.mp3"
 });
 
 addWish({
