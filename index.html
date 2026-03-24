@@ -5,18 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Zinclink ✨</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
-/* theme */
+/* 🌞 Light */
 :root{
 --bg:#a8d8ea;
 --text:#2c3e50;
 --card:rgba(255,255,255,0.3);
 }
 
+/* 🌙 Dark */
 body.dark{
 --bg:#0d1025;
 --text:#ffffff;
@@ -26,12 +25,18 @@ body.dark{
 body{
 background:var(--bg);
 color:var(--text);
-font-family:'Quicksand',sans-serif;
+font-family:'Segoe UI',sans-serif;
 overflow:hidden;
+transition:.4s;
 }
 
 /* canvas */
-canvas{position:fixed;top:0;left:0;z-index:0}
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:0;
+}
 
 /* container */
 .container{
@@ -43,24 +48,22 @@ padding:20px;
 
 /* profile */
 .profile img{
-width:120px;height:120px;border-radius:50%;
+width:120px;
+height:120px;
+border-radius:50%;
 }
 
-/* title */
-h1{
-font-family:'Cinzel';
-margin-top:10px;
-}
+h1{margin-top:10px}
 
-/* links */
-.links{
+/* buttons */
+.buttons{
 display:flex;
 flex-direction:column;
 gap:12px;
 margin-top:20px;
 }
 
-.link-button{
+.btn{
 padding:15px;
 border-radius:18px;
 text-decoration:none;
@@ -69,21 +72,12 @@ background:var(--card);
 transition:.3s;
 }
 
-.link-button:hover{
+.btn:hover{
 transform:scale(1.05);
 }
 
 /* controls */
-.controls-left{
-position:fixed;
-top:10px;
-left:10px;
-display:flex;
-gap:10px;
-z-index:999;
-}
-
-.controls-right{
+.controls{
 position:fixed;
 top:10px;
 right:10px;
@@ -92,101 +86,24 @@ gap:10px;
 z-index:999;
 }
 
-/* buttons */
 .control-btn{
 width:45px;height:45px;
-border-radius:50%;
-border:none;
+border:none;border-radius:10px;
 cursor:pointer;
-}
-
-/* sticker */
-.sticker-btn{
-height:45px;
-padding:0 15px;
-border-radius:12px;
-background:#fff3cd;
-color:#333;
-font-weight:bold;
-border:none;
-cursor:pointer;
-}
-
-/* birthday */
-.birthday-btn{
-height:45px;
-padding:0 15px;
-border-radius:12px;
-background:#ffd6e0;
-color:#333;
-font-weight:bold;
-border:none;
-cursor:pointer;
-}
-
-/* hover */
-.sticker-btn:hover,
-.birthday-btn:hover{
-transform:scale(1.05);
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
 /* frieren */
 .frieren-character{
-position:fixed;
-width:80px;
-z-index:2;
-}
-
-/* sticker page */
-.page{
-position:fixed;
-top:0;left:0;
-width:100%;height:100%;
-background:linear-gradient(#87CEEB,#e0f7ff);
-display:none;
-z-index:9999;
-overflow:hidden;
-padding:20px;
-text-align:center;
-}
-
-.page .links{position:relative;z-index:2}
-
-.back{
-position:fixed;
-top:10px;
-left:10px;
-}
-
-/* clouds */
-.cloud{
 position:absolute;
-background:white;
-border-radius:50%;
-opacity:.8;
-animation:cloudMove linear infinite;
+width:90px;
+cursor:pointer;
 }
-
-.cloud1{width:120px;height:60px;top:20%;animation-duration:40s;}
-.cloud2{width:100px;height:50px;top:50%;animation-duration:30s;}
-.cloud3{width:140px;height:70px;top:70%;animation-duration:50s;}
-
-@keyframes cloudMove{
-0%{left:-200px;}
-100%{left:110%;}
+.frieren-character img{
+width:100%;
+animation:float 3s infinite;
 }
-
-/* birds */
-.bird{
-position:absolute;
-font-size:20px;
-animation:fly 10s linear infinite;
-}
-
-@keyframes fly{
-0%{left:-50px;top:20%;}
-100%{left:110%;top:25%;}
+@keyframes float{
+50%{transform:translateY(-10px)}
 }
 </style>
 </head>
@@ -195,14 +112,7 @@ animation:fly 10s linear infinite;
 
 <canvas id="sky"></canvas>
 
-<!-- LEFT -->
-<div class="controls-left">
-<button class="sticker-btn" onclick="openStickers()">ZINC STICKER 🍭</button>
-<button class="birthday-btn" onclick="openBirthday()">BIRTHDAY WISHES 🎂</button>
-</div>
-
-<!-- RIGHT -->
-<div class="controls-right">
+<div class="controls">
 <button class="control-btn" id="themeToggle">🌙</button>
 <button class="control-btn" id="musicToggle">🎵</button>
 </div>
@@ -214,48 +124,10 @@ animation:fly 10s linear infinite;
 <h1>✨ ZINCLINK ✨</h1>
 </div>
 
-<div class="links">
-<a href="https://t.me/+TR9htFRxo5wzZDFl" class="link-button">📡 Main Channel</a>
-<a href="https://t.me/+vXfnGFII1zk3YjI1" class="link-button">🐺 Ph Wolf blood</a>
-<a href="https://t.me/piratepotatoe" class="link-button">🎮 Ludum Nexus</a>
-<a href="https://t.me/+vl5nFkI2FdYwNDNl" class="link-button">📜 Zinchronicles</a>
-<a href="https://t.me/Zinisters" class="link-button">🌙 Nightmares</a>
-<a href="https://t.me/Zinclinck" class="link-button">🔗 Zinclink</a>
-<a href="https://t.me/Menolostalgia" class="link-button">🎵 Dump playlist</a>
-<a href="https://t.me/Matthew1128NIV" class="link-button">📖 God's Words</a>
-<a href="https://t.me/Formeforusforyou" class="link-button">🙏 Worship song</a>
-<a href="https://padlet.com/serialollipoop/freedom-wall-fqxswoovty9lok4s" class="link-button">💭 Freedom Wall</a>
-</div>
-
-</div>
-
-<!-- STICKER PAGE -->
-<div id="stickerPage" class="page">
-
-<button onclick="closeStickers()" class="back">⬅</button>
-
-<div class="cloud cloud1"></div>
-<div class="cloud cloud2"></div>
-<div class="cloud cloud3"></div>
-
-<div class="bird">🐦</div>
-<div class="bird" style="animation-delay:3s;">🐦</div>
-
-<h2>✨ Sticker Packs ✨</h2>
-
-<div class="links">
-<a href="https://t.me/addstickers/Dino_kuning_by_fStikBot" class="link-button">🦖 Dino Kuning(120)</a>
-<a href="https://t.me/addstickers/video2084685332_by_Zeroo_Twoo_Bot" class="link-button">💙 Zinc Fav(98)</a>
-<a href="https://t.me/addstickers/Zinxcca_by_fStikBot" class="link-button">🐒 White Monkey(93)</a>
-<a href="https://t.me/addstickers/yellowfatdragon_by_fStikBot" class="link-button">🐉 Nailong(30)</a>
-<a href="https://t.me/addstickers/Cote_Cherries_by_fStikBot" class="link-button">🍒 Cote Cherry(77)</a>
-<a href="https://t.me/addstickers/animated_2084685332_by_rNatalie_bot" class="link-button">🔥 Buttazz(24)</a>
-<a href="https://t.me/addstickers/a2084685332_by_rNatalie_bot" class="link-button">🥥 Coconut(17)</a>
-<a href="https://t.me/addstickers/Qoobeeagapito_by_fStikBot" class="link-button">🐝 Qoobee(120)</a>
-<a href="https://t.me/addstickers/theachan_by_fStikBot" class="link-button">👭 Sisters(40)</a>
-<a href="https://t.me/addstickers/anivid_2084685332_by_rNatalie_bot" class="link-button">🍯 Zinsyrups(12)</a>
-<a href="https://t.me/addstickers/animated2084685332_by_Zeroo_Twoo_Bot" class="link-button">⚡ ASL(27)</a>
-<a href="https://t.me/addstickers/junji_love_by_fStikBot" class="link-button">❤️ Junji(41)</a>
+<div class="buttons">
+<a href="stickers.html" class="btn">🍭 ZINC STICKER</a>
+<a href="birthday.html" class="btn">🎂 BIRTHDAY WALL</a>
+<a href="links.html" class="btn">🔗 ZINC LINKS💗</a>
 </div>
 
 </div>
@@ -265,68 +137,35 @@ animation:fly 10s linear infinite;
 </audio>
 
 <script>
-// theme
-document.getElementById('themeToggle').onclick=()=>{
-document.body.classList.toggle('dark');
+// 🌙 theme
+const body=document.body;
+const themeBtn=document.getElementById('themeToggle');
+
+themeBtn.onclick=()=>{
+body.classList.toggle('dark');
 };
 
-// music
+// 🎵 music
 const music=document.getElementById('bgMusic');
 let playing=false;
 document.getElementById('musicToggle').onclick=()=>{
-playing?music.pause():music.play();
-playing=!playing;
+if(!playing){music.play();playing=true;}
+else{music.pause();playing=false;}
 };
 
-// frieren
-const gifs=["assets/frieren1.gif","assets/frieren2.gif","assets/frieren3.gif"];
-const frierens=[];
-let active=null;
-
-gifs.forEach(src=>{
-let f=document.createElement("img");
-f.src=src;
-f.className="frieren-character";
-document.body.appendChild(f);
-
-f.style.left=Math.random()*80+"vw";
-f.style.top=Math.random()*70+"vh";
-
-f.onclick=()=>active=f;
-
-frierens.push(f);
-});
-
-document.addEventListener("mousemove",(e)=>{
-if(active){
-active.style.left=(e.clientX-70)+"px";
-active.style.top=(e.clientY-70)+"px";
-}
-});
-
-setInterval(()=>{
-frierens.forEach(f=>{
-if(f!==active){
-f.style.left=Math.random()*90+"vw";
-f.style.top=Math.random()*90+"vh";
-f.style.transition="2s linear";
-}
-});
-},2000);
-
-// sky
-const c=document.getElementById('sky');
-const ctx=c.getContext('2d');
-c.width=innerWidth;
-c.height=innerHeight;
+// 🌌 sky
+const canvas=document.getElementById('sky');
+const ctx=canvas.getContext('2d');
+canvas.width=innerWidth;
+canvas.height=innerHeight;
 
 let stars=[];
 for(let i=0;i<100;i++){
-stars.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*2});
+stars.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2});
 }
 
 function draw(){
-ctx.clearRect(0,0,c.width,c.height);
+ctx.clearRect(0,0,canvas.width,canvas.height);
 ctx.fillStyle="white";
 stars.forEach(s=>{
 ctx.beginPath();
@@ -337,18 +176,20 @@ requestAnimationFrame(draw);
 }
 draw();
 
-// sticker
-function openStickers(){
-document.getElementById("stickerPage").style.display="block";
-}
-function closeStickers(){
-document.getElementById("stickerPage").style.display="none";
-}
+// 🧝 frieren
+["assets/frieren1.gif","assets/frieren2.gif","assets/frieren3.gif"].forEach(src=>{
+let f=document.createElement("div");
+f.className="frieren-character";
+let img=document.createElement("img");
+img.src=src;
+f.appendChild(img);
+document.body.appendChild(f);
 
-// birthday
-function openBirthday(){
-window.location.href="birthday.html";
-}
+f.style.left=Math.random()*80+"vw";
+f.style.top=Math.random()*70+"vh";
+
+f.onclick=()=>{music.play()};
+});
 </script>
 
 </body>
