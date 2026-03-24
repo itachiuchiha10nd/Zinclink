@@ -10,24 +10,47 @@
 
 /* 🌞 Light */
 :root{
---bg:#a8d8ea;
 --text:#2c3e50;
---card:rgba(255,255,255,0.3);
+--card:rgba(255,255,255,0.4);
 }
 
 /* 🌙 Dark */
 body.dark{
---bg:#0d1025;
---text:#fff;
---card:rgba(255,255,255,0.1);
+--text:#ffffff;
+--card:rgba(0,0,0,0.4);
 }
 
 body{
-background:var(--bg);
 color:var(--text);
 font-family:'Segoe UI',sans-serif;
 overflow:hidden;
-transition:.4s;
+}
+
+/* 🎥 VIDEO RESPONSIVE */
+.bg-video{
+position:fixed;
+top:0;
+left:0;
+width:100vw;
+height:100vh;
+object-fit:cover;
+object-position:center;
+z-index:-2;
+pointer-events:none;
+transition:0.5s;
+}
+
+/* fix mobile scaling */
+video{
+max-width:none;
+}
+
+/* orientation fix */
+@media (orientation: portrait){
+.bg-video{object-position:center top;}
+}
+@media (orientation: landscape){
+.bg-video{object-position:center;}
 }
 
 /* canvas */
@@ -35,7 +58,7 @@ canvas{
 position:fixed;
 top:0;
 left:0;
-z-index:0;
+z-index:-1;
 }
 
 /* container */
@@ -67,6 +90,7 @@ border-radius:18px;
 text-decoration:none;
 color:var(--text);
 background:var(--card);
+backdrop-filter:blur(10px);
 transition:.3s;
 }
 
@@ -112,6 +136,16 @@ animation:float 3s infinite;
 
 <body>
 
+<!-- 🌞 DAY VIDEO -->
+<video id="dayVideo" class="bg-video" autoplay muted loop playsinline>
+<source src="assets/day.mp4" type="video/mp4">
+</video>
+
+<!-- 🌙 NIGHT VIDEO -->
+<video id="nightVideo" class="bg-video" autoplay muted loop playsinline style="display:none;">
+<source src="assets/night.mp4" type="video/mp4">
+</video>
+
 <canvas id="sky"></canvas>
 
 <div class="controls">
@@ -120,6 +154,7 @@ animation:float 3s infinite;
 </div>
 
 <div class="container">
+
 <div class="profile">
 <img src="assets/profile.jpg">
 <h1>✨ ZINCLINK ✨</h1>
@@ -127,9 +162,10 @@ animation:float 3s infinite;
 
 <div class="buttons">
 <a href="stickers.html" class="btn">🍭 ZINC STICKER</a>
-<a href="birthday.html" class="btn">🎂 BIRTHDAY WISHES 2025 </a>
-<a href="links.html" class="btn">🔗 ZINC LINKS💗</a>
+<a href="birthday.html" class="btn">🎂 BIRTHDAY WALL</a>
+<a href="links.html" class="btn">🔗 ALL LINKS</a>
 </div>
+
 </div>
 
 <audio id="bgMusic" loop>
@@ -138,26 +174,58 @@ animation:float 3s infinite;
 
 <script>
 
-/* 🌙 THEME */
+/* 🌙 THEME + VIDEO SWITCH */
 const body=document.body;
-document.getElementById("themeToggle").onclick=()=>{
+const btn=document.getElementById("themeToggle");
+
+const dayVideo=document.getElementById("dayVideo");
+const nightVideo=document.getElementById("nightVideo");
+
+/* load saved */
+if(localStorage.getItem("theme")==="dark"){
+body.classList.add("dark");
+dayVideo.style.display="none";
+nightVideo.style.display="block";
+btn.textContent="☀️";
+}
+
+/* toggle */
+btn.onclick=()=>{
 body.classList.toggle("dark");
+let dark=body.classList.contains("dark");
+
+if(dark){
+dayVideo.style.display="none";
+nightVideo.style.display="block";
+btn.textContent="☀️";
+}else{
+dayVideo.style.display="block";
+nightVideo.style.display="none";
+btn.textContent="🌙";
+}
+
+localStorage.setItem("theme",dark?"dark":"light");
 };
 
 /* 🎵 MUSIC */
 const music=document.getElementById("bgMusic");
 let playing=false;
+
 document.getElementById("musicToggle").onclick=()=>{
 if(!playing){music.play();playing=true;}
 else{music.pause();playing=false;}
 };
 
-/* 🌌 STAR BLINK */
+/* 🌌 STARS (night only) */
 const canvas=document.getElementById('sky');
 const ctx=canvas.getContext('2d');
 
-canvas.width=innerWidth;
-canvas.height=innerHeight;
+function resizeCanvas(){
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener("resize",resizeCanvas);
 
 let stars=[];
 for(let i=0;i<120;i++){
@@ -172,8 +240,9 @@ o:Math.random()
 function draw(){
 ctx.clearRect(0,0,canvas.width,canvas.height);
 
+if(body.classList.contains("dark")){
 stars.forEach(s=>{
-s.o += (Math.random()-0.5)*0.05;
+s.o+=(Math.random()-0.5)*0.05;
 if(s.o<0)s.o=0;
 if(s.o>1)s.o=1;
 
@@ -182,12 +251,13 @@ ctx.beginPath();
 ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
 ctx.fill();
 });
+}
 
 requestAnimationFrame(draw);
 }
 draw();
 
-/* 🧝 FRIEREN SYSTEM */
+/* 🧝 FRIEREN */
 const gifs=[
 "assets/frieren1.gif",
 "assets/frieren2.gif",
@@ -207,20 +277,15 @@ img.src=src;
 f.appendChild(img);
 document.body.appendChild(f);
 
-/* start pos */
 f.style.left=Math.random()*80+"vw";
 f.style.top=Math.random()*70+"vh";
 
 frierens.push(f);
 
-/* click follow */
 f.onclick=()=>{
 active=f;
-
-/* jump */
 f.style.transform="translateY(-40px)";
 setTimeout(()=>f.style.transform="none",400);
-
 music.currentTime=0;
 music.play();
 };
