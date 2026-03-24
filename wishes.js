@@ -187,12 +187,11 @@ Cheer up to another year, sissyyy. May this new age will bring you a lot of fun 
 Thank you for always hearing me out and be the best sis ever. Thank you for always taking care of us and planning surprises. I'm really glad I met you. Let's live even more happy together and may each year that we spend together will bring a lot of fun things. Sis, be as free as a bird. Don't be afraid to soar into the sky. It's fine to fall but remember, you can always fly again. Just stay true being yourself and do things that make you happy.
 
 May this year bring you a lot of happiness and make you bloom into a stronger person ever. Love you sis, i'm proud of you, always. 
-
 Have a great birthday, zincotieee💕⭐️
 
 From your sissy, Thea🧚‍♀️`,
 color:"#ffd6e0"
-audio: "assets/voice1.mp3"
+audio:"assets/voice1.mp3"
 });
 
 addWish({
