@@ -8,11 +8,11 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
+/* 🌻 background */
 body{
 font-family:'Segoe UI',sans-serif;
-background:linear-gradient(135deg,#fff3a0,#ffd6a5);
-padding:20px;
-text-align:center;
+background:linear-gradient(135deg,#fff8a6,#ffe066);
+overflow:hidden;
 }
 
 /* back */
@@ -20,42 +20,95 @@ text-align:center;
 position:fixed;
 top:10px;
 left:10px;
-background:#fff;
+background:#ffffffcc;
 padding:8px 12px;
 border-radius:10px;
 text-decoration:none;
 color:#000;
+z-index:999;
 }
 
 /* title */
 h1{
+text-align:center;
 margin-top:20px;
-color:#333;
+color:#444;
 }
 
-/* links container */
+/* container */
+.container{
+position:relative;
+z-index:2;
+padding:60px 20px;
+}
+
+/* links */
 .links{
 display:flex;
 flex-direction:column;
 gap:12px;
-margin-top:30px;
 max-width:400px;
-margin-inline:auto;
+margin:auto;
 }
 
-/* button style */
 .link-button{
 padding:15px;
 border-radius:18px;
 text-decoration:none;
 color:#000;
-background:rgba(255,255,255,0.7);
+background:rgba(255,255,255,0.6);
 backdrop-filter:blur(8px);
 transition:.3s;
 }
 
 .link-button:hover{
 transform:scale(1.05);
+}
+
+/* 🌻 falling */
+.flower{
+position:fixed;
+top:-20px;
+font-size:22px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(0) translateX(0);}
+100%{transform:translateY(110vh) translateX(60px) rotate(360deg);}
+}
+
+/* ☀️ sun moving */
+.sun{
+position:fixed;
+width:90px;
+height:90px;
+border-radius:50%;
+background:radial-gradient(circle,#fff200,#ffd000,#ffa500);
+box-shadow:0 0 40px rgba(255,200,0,0.8);
+animation:sunMove 20s linear infinite, pulse 3s infinite;
+}
+
+@keyframes sunMove{
+0%{top:10%; left:10%;}
+50%{top:5%; left:70%;}
+100%{top:10%; left:10%;}
+}
+
+@keyframes pulse{
+50%{transform:scale(1.1);}
+}
+
+/* 💥 burst */
+.burst{
+position:fixed;
+font-size:20px;
+animation:burst 1s ease-out forwards;
+}
+
+@keyframes burst{
+0%{opacity:1;transform:translate(0,0);}
+100%{opacity:0;transform:translate(var(--x),var(--y));}
 }
 </style>
 </head>
@@ -64,7 +117,11 @@ transform:scale(1.05);
 
 <a href="index.html" class="back">⬅ Back</a>
 
-<h1>🍭 Zinc Stickers 🍭</h1>
+<div class="sun"></div>
+
+<h1>🌻 Zinc Stickers 🌻</h1>
+
+<div class="container">
 
 <div class="links">
 
@@ -82,6 +139,44 @@ transform:scale(1.05);
 <a href="https://t.me/addstickers/junji_love_by_fStikBot" class="link-button">❤️ Junji (41)</a>
 
 </div>
+
+</div>
+
+<script>
+
+/* 🌻 falling flowers */
+for(let i=0;i<30;i++){
+let f=document.createElement("div");
+f.className="flower";
+f.innerHTML="🌻";
+f.style.left=Math.random()*100+"vw";
+f.style.animationDuration=(5+Math.random()*5)+"s";
+f.style.opacity=Math.random();
+document.body.appendChild(f);
+}
+
+/* 💥 click burst */
+document.addEventListener("click",(e)=>{
+for(let i=0;i<12;i++){
+let p=document.createElement("div");
+p.className="burst";
+p.innerHTML="🌻";
+
+let x=(Math.random()*200-100)+"px";
+let y=(Math.random()*200-100)+"px";
+
+p.style.left=e.clientX+"px";
+p.style.top=e.clientY+"px";
+p.style.setProperty("--x",x);
+p.style.setProperty("--y",y);
+
+document.body.appendChild(p);
+
+setTimeout(()=>p.remove(),1000);
+}
+});
+
+</script>
 
 </body>
 </html>
