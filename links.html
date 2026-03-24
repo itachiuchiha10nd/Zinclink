@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZINCLINK 🌸</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+/* background */
+body{
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(135deg,#ffc0cb,#e6ccff);
+overflow:hidden;
+}
+
+/* back */
+.back{
+position:fixed;
+top:10px;
+left:10px;
+background:#ffffffcc;
+padding:8px 12px;
+border-radius:10px;
+text-decoration:none;
+color:#000;
+z-index:999;
+}
+
+/* title */
+h1{
+text-align:center;
+color:#fff;
+margin-top:20px;
+}
+
+/* container */
+.container{
+position:relative;
+z-index:2;
+padding:60px 20px;
+}
+
+/* links */
+.links{
+display:flex;
+flex-direction:column;
+gap:12px;
+max-width:400px;
+margin:auto;
+}
+
+.link{
+padding:15px;
+border-radius:20px;
+background:rgba(255,255,255,0.6);
+backdrop-filter:blur(10px);
+text-decoration:none;
+color:#000;
+text-align:center;
+transition:.3s;
+}
+
+.link:hover{
+transform:scale(1.05);
+}
+
+/* 🌸 petals */
+.flower{
+position:fixed;
+top:-20px;
+font-size:20px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(0) translateX(0);}
+100%{transform:translateY(110vh) translateX(50px) rotate(360deg);}
+}
+
+/* 🐦 birds */
+.bird{
+position:fixed;
+font-size:20px;
+animation:fly 12s linear infinite;
+}
+
+@keyframes fly{
+0%{left:-10%;top:20%;}
+100%{left:110%;top:10%;}
+}
+
+/* 💥 burst petals */
+.burst{
+position:fixed;
+font-size:18px;
+animation:burst 1s ease-out forwards;
+}
+
+@keyframes burst{
+0%{opacity:1;transform:translate(0,0);}
+100%{opacity:0;transform:translate(var(--x),var(--y));}
+}
+</style>
+</head>
+
+<body>
+
+<a href="index.html" class="back">⬅ Back</a>
+
+<h1>🌸 All Links 🌸</h1>
+
+<div class="container">
+
+<div class="links">
+
+<a class="link" href="https://t.me/+TR9htFRxo5wzZDFl">📡 Main Channel</a>
+<a class="link" href="https://t.me/+vXfnGFII1zk3YjI1">🐺 Ph Wolf blood</a>
+<a class="link" href="https://t.me/piratepotatoe">🎮 Ludum Nexus</a>
+<a class="link" href="https://t.me/+vl5nFkI2FdYwNDNl">📜 Zinchronicles</a>
+<a class="link" href="https://t.me/Zinisters">🌙 Nightmares</a>
+<a class="link" href="https://t.me/Zinclinck">🔗 Zinclink</a>
+<a class="link" href="https://t.me/Menolostalgia">🎵 Dump playlist</a>
+<a class="link" href="https://t.me/Matthew1128NIV">📖 God's Words</a>
+<a class="link" href="https://t.me/Formeforusforyou">🙏 Worship song</a>
+<a class="link" href="https://padlet.com/serialollipoop/freedom-wall-fqxswoovty9lok4s">💭 Freedom Wall</a>
+
+</div>
+
+</div>
+
+<script>
+
+/* 🌸 falling petals with wind */
+for(let i=0;i<30;i++){
+let f=document.createElement("div");
+f.className="flower";
+f.innerHTML="🌸";
+f.style.left=Math.random()*100+"vw";
+f.style.animationDuration=(5+Math.random()*5)+"s";
+f.style.opacity=Math.random();
+document.body.appendChild(f);
+}
+
+/* 🐦 birds */
+for(let i=0;i<3;i++){
+let b=document.createElement("div");
+b.className="bird";
+b.innerHTML="🐦";
+b.style.top=(10+Math.random()*40)+"%";
+b.style.animationDuration=(10+Math.random()*10)+"s";
+document.body.appendChild(b);
+}
+
+/* 💥 click burst effect */
+document.addEventListener("click",(e)=>{
+for(let i=0;i<10;i++){
+let p=document.createElement("div");
+p.className="burst";
+p.innerHTML="🌸";
+
+let x=(Math.random()*200-100)+"px";
+let y=(Math.random()*200-100)+"px";
+
+p.style.left=e.clientX+"px";
+p.style.top=e.clientY+"px";
+p.style.setProperty("--x",x);
+p.style.setProperty("--y",y);
+
+document.body.appendChild(p);
+
+setTimeout(()=>p.remove(),1000);
+}
+});
+</script>
+
+</body>
+</html>
