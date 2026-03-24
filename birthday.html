@@ -8,11 +8,17 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
-/* body */
+/* 🎂 BODY BACKGROUND IMAGE */
 body{
 font-family:'Segoe UI',sans-serif;
-background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+background:
+linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+url("assets/birthday-bg.jpg");
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
 padding:20px;
+color:#fff;
 }
 
 /* back */
@@ -25,39 +31,44 @@ padding:8px 12px;
 border-radius:10px;
 text-decoration:none;
 color:#000;
-font-weight:bold;
 z-index:1000;
 }
 
 /* title */
 h1{
 text-align:center;
-color:#fff;
 margin-bottom:20px;
 }
 
-/* masonry */
+/* masonry layout */
 .wall{
 column-count:2;
 column-gap:15px;
 }
 
+/* mobile */
 @media(max-width:700px){
-.wall{column-count:1;}
+.wall{
+column-count:1;
+}
 }
 
-/* card */
+/* cards */
 .card{
 display:inline-block;
 width:100%;
 margin-bottom:15px;
 padding:15px;
 border-radius:15px;
-box-shadow:0 5px 20px rgba(0,0,0,0.2);
+box-shadow:0 5px 20px rgba(0,0,0,0.3);
 white-space:pre-line;
 break-inside:avoid;
-background:rgba(255,255,255,0.8);
+
+/* glass */
+background:rgba(255,255,255,0.85);
 backdrop-filter:blur(10px);
+color:#000;
+
 transition:.3s;
 }
 
@@ -65,16 +76,11 @@ transition:.3s;
 transform:scale(1.02);
 }
 
+/* image */
 .card img{
 width:100%;
 margin-top:10px;
 border-radius:10px;
-}
-
-.error{
-color:red;
-text-align:center;
-margin-top:20px;
 }
 </style>
 </head>
@@ -88,27 +94,23 @@ margin-top:20px;
 <div class="wall" id="wall"></div>
 
 <!-- LOAD WISHES -->
-<script src="wishes.js?v=NUMBER"></script>
+<script src="./wishes.js?v=2"></script>
 
 <script>
+window.onload = function(){
+
 const wall = document.getElementById("wall");
 
-try{
-
+/* safety */
 if(typeof wishes === "undefined"){
-throw new Error("wishes.js not loaded ❌");
+wall.innerHTML = "<h2 style='color:red;text-align:center'>❌ wishes.js not loaded</h2>";
+return;
 }
 
-if(wishes.length === 0){
-throw new Error("No wishes found ❌");
-}
-
-/* render safely */
+/* render */
 wishes.forEach(w=>{
-if(!w) return;
-
 wall.innerHTML += `
-<div class="card" style="background:${w.color || '#fff'}">
+<div class="card" style="background:${w.color || 'rgba(255,255,255,0.85)'}">
 <h3>${w.title || "Birthday Wish 🎂"}</h3>
 <p>${w.msg || ""}</p>
 ${w.img ? `<img src="${w.img}">` : ""}
@@ -116,19 +118,7 @@ ${w.img ? `<img src="${w.img}">` : ""}
 `;
 });
 
-console.log("✅ Wishes loaded:", wishes.length);
-
-}catch(err){
-
-wall.innerHTML = `
-<div class="error">
-❌ Error loading wishes<br><br>
-${err.message}
-</div>
-`;
-
-console.error(err);
-}
+};
 </script>
 
 </body>
