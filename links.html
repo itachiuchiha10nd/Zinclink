@@ -3,16 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZINCLINK 🌸</title>
+<title>Zinc Links 🌸</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
-/* background */
+/* 🌸 smooth scroll */
+html{
+scroll-behavior:smooth;
+}
+
+/* 🎥 video background */
+.bg-video{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-2;
+}
+
+/* soft pink overlay */
+.overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(255,200,230,0.25);
+z-index:-1;
+}
+
+/* body */
 body{
 font-family:'Segoe UI',sans-serif;
-background:linear-gradient(135deg,#ffc0cb,#e6ccff);
-overflow:hidden;
+overflow-x:hidden;
+overflow-y:auto;
 }
 
 /* back */
@@ -31,8 +58,10 @@ z-index:999;
 /* title */
 h1{
 text-align:center;
-color:#fff;
 margin-top:20px;
+color:#ff4da6;
+position:relative;
+z-index:2;
 }
 
 /* container */
@@ -51,80 +80,84 @@ max-width:400px;
 margin:auto;
 }
 
-.link{
+/* button */
+.link-button{
 padding:15px;
-border-radius:20px;
-background:rgba(255,255,255,0.6);
-backdrop-filter:blur(10px);
+border-radius:18px;
 text-decoration:none;
 color:#000;
-text-align:center;
+background:rgba(255,255,255,0.7);
+backdrop-filter:blur(10px);
 transition:.3s;
 }
 
-.link:hover{
+.link-button:hover{
 transform:scale(1.05);
+background:rgba(255,255,255,0.9);
 }
 
-/* 🌸 petals */
+/* 🌸 falling sakura */
 .flower{
 position:fixed;
 top:-20px;
 font-size:20px;
+pointer-events:none;
 animation:fall linear infinite;
 }
 
 @keyframes fall{
 0%{transform:translateY(0) translateX(0);}
-100%{transform:translateY(110vh) translateX(50px) rotate(360deg);}
+100%{transform:translateY(110vh) translateX(40px) rotate(360deg);}
 }
 
-/* 🐦 birds */
-.bird{
-position:fixed;
-font-size:20px;
-animation:fly 12s linear infinite;
-}
-
-@keyframes fly{
-0%{left:-10%;top:20%;}
-100%{left:110%;top:10%;}
-}
-
-/* 💥 burst petals */
+/* 💥 petal blast */
 .burst{
 position:fixed;
-font-size:18px;
+font-size:20px;
+pointer-events:none;
 animation:burst 1s ease-out forwards;
 }
 
 @keyframes burst{
-0%{opacity:1;transform:translate(0,0);}
-100%{opacity:0;transform:translate(var(--x),var(--y));}
+0%{
+opacity:1;
+transform:translate(0,0) scale(1);
+}
+100%{
+opacity:0;
+transform:translate(var(--x),var(--y)) scale(0.5);
+}
 }
 </style>
 </head>
 
 <body>
 
+<!-- 🎥 VIDEO BACKGROUND -->
+<video class="bg-video" autoplay muted loop playsinline>
+<source src="assets/cherry-bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
 <a href="index.html" class="back">⬅ Back</a>
 
-<h1>🌸 All Links 🌸</h1>
+<h1>🌸 Zinc Links 🌸</h1>
 
 <div class="container">
 
 <div class="links">
 
-<a class="link" href="https://t.me/+TR9htFRxo5wzZDFl">📡 Main Channel</a>
-<a class="link" href="https://t.me/+vXfnGFII1zk3YjI1">🐺 Ph Wolf blood</a>
-<a class="link" href="https://t.me/piratepotatoe">🎮 Ludum Nexus</a>
-<a class="link" href="https://t.me/+vl5nFkI2FdYwNDNl">📜 Zinchronicles</a>
-<a class="link" href="https://t.me/Zinisters">🌙 Nightmares</a>
-<a class="link" href="https://t.me/Zinclinck">🔗 Zinclink</a>
-<a class="link" href="https://t.me/Menolostalgia">🎵 Dump playlist</a>
-<a class="link" href="https://t.me/Matthew1128NIV">📖 God's Words</a>
-<a class="link" href="https://t.me/Formeforusforyou">🙏 Worship song</a>
-<a class="link" href="https://padlet.com/serialollipoop/freedom-wall-fqxswoovty9lok4s">💭 Freedom Wall</a>
+<a href="https://t.me/+TR9htFRxo5wzZDFl" class="link-button">📡 Main Channel</a>
+<a href="https://t.me/+vXfnGFII1zk3YjI1" class="link-button">🐺 Ph Wolf Blood</a>
+<a href="https://t.me/piratepotatoe" class="link-button">🎮 Ludum Nexus</a>
+<a href="https://t.me/+vl5nFkI2FdYwNDNl" class="link-button">📜 Zinchronicles</a>
+<a href="https://t.me/Zinisters" class="link-button">🌙 Nightmares</a>
+<a href="https://t.me/Zinclinck" class="link-button">🔗 Zinclink</a>
+<a href="https://t.me/Menolostalgia" class="link-button">🎵 Dump Playlist</a>
+<a href="https://t.me/Matthew1128NIV" class="link-button">📖 God's Words</a>
+<a href="https://t.me/Formeforusforyou" class="link-button">🙏 Worship Song</a>
+<a href="https://padlet.com/serialollipoop/freedom-wall-fqxswoovty9lok4s" class="link-button">💭 Freedom Wall</a>
 
 </div>
 
@@ -132,8 +165,8 @@ animation:burst 1s ease-out forwards;
 
 <script>
 
-/* 🌸 falling petals with wind */
-for(let i=0;i<30;i++){
+/* 🌸 falling sakura */
+for(let i=0;i<35;i++){
 let f=document.createElement("div");
 f.className="flower";
 f.innerHTML="🌸";
@@ -143,25 +176,16 @@ f.style.opacity=Math.random();
 document.body.appendChild(f);
 }
 
-/* 🐦 birds */
-for(let i=0;i<3;i++){
-let b=document.createElement("div");
-b.className="bird";
-b.innerHTML="🐦";
-b.style.top=(10+Math.random()*40)+"%";
-b.style.animationDuration=(10+Math.random()*10)+"s";
-document.body.appendChild(b);
-}
-
-/* 💥 click burst effect */
+/* 💥 click petal blast */
 document.addEventListener("click",(e)=>{
-for(let i=0;i<10;i++){
+for(let i=0;i<15;i++){
+
 let p=document.createElement("div");
 p.className="burst";
 p.innerHTML="🌸";
 
-let x=(Math.random()*200-100)+"px";
-let y=(Math.random()*200-100)+"px";
+let x=(Math.random()*300-150)+"px";
+let y=(Math.random()*300-150)+"px";
 
 p.style.left=e.clientX+"px";
 p.style.top=e.clientY+"px";
@@ -173,6 +197,7 @@ document.body.appendChild(p);
 setTimeout(()=>p.remove(),1000);
 }
 });
+
 </script>
 
 </body>
