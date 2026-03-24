@@ -128,139 +128,6 @@ img:"https://files.catbox.moe/zc46v7.jpg"
 });
 
 addWish({
-title:`Another year older, but still the #1 'Poop' in our hearts. Hope your day is as sweet as that giant strawberry cake! ❤️
-
-HAPPY BIRTHDAY ZINC ❤️ 🎀 
-
-LOVE YOU 🎀❤️ 
--AKARSH`,
-msg:``,
-img:`https://files.catbox.moe/py2dug.jpg`,
-color:`linear-gradient(135deg,#e6ccff,#ffc0cb)`
-});
-
-addWish({
-title:`Happy Birthday Zinco... 😛`,
-msg:`Master of Frenzy po`,
-img:`https://files.catbox.moe/cghrxw.jpg`,
-color:"#ffffff"
-});
-
-addWish({
-title:`Happy birthday Zinc!`,
-msg:`🎂🧸 Happiest birthday, my sweet Zincoteee! 🎀💕 On this special day, I want to take a moment to remind you how incredibly loved and special you are. Your cuteness, kindness, and the way you treat everyone so gently are such a lovely trait. Your heart is pure, and the way you care for others is truly inspiring. You have such a beautiful soul and I feel so lucky to know you in this app, to be one of your friends, and to celebrate your birthday today. May this year bring you nothing but happiness, growth, and endless joy 🌻✨
-
-I hope your day is filled with all the things that make you smile—whether it’s a cozy moment with loved ones, some sweet cakes or dessert, or simply taking the time to do what brings you peace. You deserve all the love and happiness in the world, and I can't wait to see what this year has in store for you 💙❄️
-
-Thank you for being such an amazing person. Here's to another year of laughter, dreams come true, and cherished memories. Wishing you the happiest birthday yet, filled with love, joy, and all the things that make you feel as special as you truly are! Ily as always my Zincote! 💜
-
-— Mizcote ☃️`,
-img:`https://files.catbox.moe/p6mdkp.jpg`,
-color:"#e6ccff"
-});
-
-addWish({
-title:`Happy Birthday Zinco...`,
-msg:`another 9, another little message from meeee
-
-medyo busy tayo this month, and we haven't talked as much, pero gusto ko pa rin maglaan ng time to celebrate you — even in a small way like this.
-
-i really treasure this little habit of writing to you every 9. it reminds me that even if life gets hectic, there's always space for the people who matter.
-
-you've been such a comforting presence online, and kahit hindi tayo laging nag-uusap, i still think of you and hope you're doing okay.
-
-mwhehehe hope we get to catch up soon.
-for now, enjoy your day, and know that you're someone worth celebrating — today and alwayss.
-
-happy birthday bb!! ^3^
-
-- razzy`,
-color:"#ffffff"
-});
-
-addWish({
-title:`Happy Birthday to my lovely sis`,
-msg:`Happy Birthday to my lovely sis, Zincotieee🩷
-
-Cheer up to another year, sissyyy. May this new age will bring you a lot of fun experiences and happiness. Stay strong through the storm, sis. You're a great and kind person so you deserve as much as love you need. 
-
-Thank you for always hearing me out and be the best sis ever. Thank you for always taking care of us and planning surprises. I'm really glad I met you. Let's live even more happy together and may each year that we spend together will bring a lot of fun things. Sis, be as free as a bird. Don't be afraid to soar into the sky. It's fine to fall but remember, you can always fly again. Just stay true being yourself and do things that make you happy.
-
-May this year bring you a lot of happiness and make you bloom into a stronger person ever. Love you sis, i'm proud of you, always. 
-Have a great birthday, zincotieee💕⭐️
-
-From your sissy, Thea🧚‍♀️`,
-color:"#ffd6e0",
-audio:"assets/voice1.mp3"
-});
-
-addWish({
-title:`Birthday Chaos 😂`,
-msg:`Happy birthday zincuuuu didiiiii...Have a great great greatest life ahead spend your days with much more clarity...hope everything gets done with efficiency at your stead....love you mother-in-law ❤️❤️❤️❤️😁....live your life with happiness and a father-in-law perhaps 😁😘😏`,
-color:"#ffffff"
-});
-
-addWish({
-title:`Cute Soul 💖`,
-msg:`Btw, it's your birthday wahaha... Happy birthday zincii. A cute and helpful soul! I love your innocent nature and I definitely love the stories you write! (Keep writing them!🐙) A beautiful and talented soul! Looking forward to many more years of our sisterhood! ❤️💋
-
--aria`,
-color:"#ffffff"
-});
-
-addWish({
-title:`Happiest Birthday zincupieeee 💗`,
-msg:`Happiest Birthday zincupieeee🤪🥹❤️💋😍🥰🎂🌸🌸💗💗💗💗🧿 Wishing you health, happiness, and everything you’ve been dreaming of this year.🥹🥹🎂🎂🌸🌸💗💗
-You deserve all the love and happiness in the world today and every day🌹😙💫✨`,
-img:`https://files.catbox.moe/pr27sd.jpg`,
-color:"#e6ccff"
-});
-
-addWish({
-title:`Zinchard 🍟`,
-msg:`Happy birthday, Zinchard! I hope you are happy in your life right now and i wish you the best day and years!🎉🎉 (Only for today i'll buy you all fries you want)`,
-img:`https://files.catbox.moe/xxofe9.jpg`,
-color:"#fff3cd"
-});
-
-addWish({
-title:`Bitiya Wish ❤️`,
-msg:`Happiest Birthday, my Bitiya! 🤩 Enjoy your dayy and wishing you a best year ahead!! Ilyyy 💞 
-
-- elyse`,
-img:`https://files.catbox.moe/wqepbk.jpg`,
-color:"#ff9999"
-});
-
-addWish({
-title:`Happy Birthday Zincutie 🧸🎂`,
-msg:`Wishing you lots of happiness, good health, and success in everything you do. Hope your day is filled with good vibes and smiles! 💗
-
-- sin`,
-color:"#ffffff"
-});
-
-addWish({
-title:`Stay Happy Always 💫`,
-msg:`u deserve to be happii alwyss, remember thisss whenever u get stressed or saddd. when u get sad, its not just you who is gonna be sad. its the whole lotta ppl who are around you bec u r such special person who would spread positive vibe around ppl but when u get sad, u cant be positive, ppl who are around u get sad too so for the ppl who care abt u, u should be happii alwyss.. have a great year ahead Zincuuuy!!! all ur wishes will come truee!! 😂
-
--joe`,
-color:"#ffffff"
-});
-
-addWish({
-title:`Cutieeepieee 💗`,
-msg:`Happiest birthday cutieeepieee🥺💗💗💗🌸🌸🌸🥳🥳🥳🥳🎂🎂🎂
-You're one of the best things that's ever happened to me. ILY🎀, and I don't ever want to lose you. Because my life has been better since the day I found you🥹❤️
-
-Happy birthday to someone who is smart, gorgeous, funny and reminds me a lot of myself… from one fabulous chick to another!😁💗🤪💋💋💋💋💋🎂🎂🎂🧿🧿🧿
-
--priyaa`,
-img:`https://files.catbox.moe/q817ct.jpg`,
-color:"#ffd6e0"
-});
-
-addWish({
 title:`Happy Birthday my cutest sissy Zincotieee❤️`,
 msg:`Happy Birthday my cutest sissy Zincotieee❤️
 Maligayang kaarawan, zinciee! 🎂🌼
@@ -416,4 +283,126 @@ Looking forward to being your sister and ally in this life, for a long, long tim
 With all the love and admiration in my heart,  
 Ren 🤍`,
 color:"#ff9999"
+});
+
+addWish({
+title:`Cutieeepieee 💗`,
+msg:`Happiest birthday cutieeepieee🥺💗💗💗🌸🌸🌸🥳🥳🥳🥳🎂🎂🎂
+You're one of the best things that's ever happened to me. ILY🎀, and I don't ever want to lose you. Because my life has been better since the day I found you🥹❤️
+
+Happy birthday to someone who is smart, gorgeous, funny and reminds me a lot of myself… from one fabulous chick to another!😁💗🤪💋💋💋💋💋🎂🎂🎂🧿🧿🧿
+
+-priyaa`,
+img:`https://files.catbox.moe/q817ct.jpg`,
+color:"#ffd6e0"
+});
+
+addWish({
+title:`Happy Birthday Zinco... 😛`,
+msg:`Master of Frenzy po`,
+img:`https://files.catbox.moe/cghrxw.jpg`,
+color:"#ffffff"
+});
+
+addWish({
+title:`Happy birthday Zinc!`,
+msg:`🎂🧸 Happiest birthday, my sweet Zincoteee! 🎀💕 On this special day, I want to take a moment to remind you how incredibly loved and special you are. Your cuteness, kindness, and the way you treat everyone so gently are such a lovely trait. Your heart is pure, and the way you care for others is truly inspiring. You have such a beautiful soul and I feel so lucky to know you in this app, to be one of your friends, and to celebrate your birthday today. May this year bring you nothing but happiness, growth, and endless joy 🌻✨
+
+I hope your day is filled with all the things that make you smile—whether it’s a cozy moment with loved ones, some sweet cakes or dessert, or simply taking the time to do what brings you peace. You deserve all the love and happiness in the world, and I can't wait to see what this year has in store for you 💙❄️
+
+Thank you for being such an amazing person. Here's to another year of laughter, dreams come true, and cherished memories. Wishing you the happiest birthday yet, filled with love, joy, and all the things that make you feel as special as you truly are! Ily as always my Zincote! 💜
+
+— Mizcote ☃️`,
+img:`https://files.catbox.moe/p6mdkp.jpg`,
+color:"#e6ccff"
+});
+
+addWish({
+title:`Happy Birthday Zinco...`,
+msg:`another 9, another little message from meeee
+
+medyo busy tayo this month, and we haven't talked as much, pero gusto ko pa rin maglaan ng time to celebrate you — even in a small way like this.
+
+i really treasure this little habit of writing to you every 9. it reminds me that even if life gets hectic, there's always space for the people who matter.
+
+you've been such a comforting presence online, and kahit hindi tayo laging nag-uusap, i still think of you and hope you're doing okay.
+
+mwhehehe hope we get to catch up soon.
+for now, enjoy your day, and know that you're someone worth celebrating — today and alwayss.
+
+happy birthday bb!! ^3^
+
+- razzy`,
+color:"#ffffff"
+});
+
+addWish({
+title:`Happy Birthday to my lovely sis`,
+msg:`Happy Birthday to my lovely sis, Zincotieee🩷
+
+Cheer up to another year, sissyyy. May this new age will bring you a lot of fun experiences and happiness. Stay strong through the storm, sis. You're a great and kind person so you deserve as much as love you need. 
+
+Thank you for always hearing me out and be the best sis ever. Thank you for always taking care of us and planning surprises. I'm really glad I met you. Let's live even more happy together and may each year that we spend together will bring a lot of fun things. Sis, be as free as a bird. Don't be afraid to soar into the sky. It's fine to fall but remember, you can always fly again. Just stay true being yourself and do things that make you happy.
+
+May this year bring you a lot of happiness and make you bloom into a stronger person ever. Love you sis, i'm proud of you, always. 
+
+Have a great birthday, zincotieee💕⭐️
+
+From your sissy, Thea🧚‍♀️`,
+color:"#ffd6e0",
+audio:"assets/audio1.mp3"
+});
+
+addWish({
+title:`Birthday Chaos 😂`,
+msg:`Happy birthday zincuuuu didiiiii...Have a great great greatest life ahead spend your days with much more clarity...hope everything gets done with efficiency at your stead....love you mother-in-law ❤️❤️❤️❤️😁....live your life with happiness and a father-in-law perhaps 😁😘😏`,
+color:"#ffffff"
+});
+
+addWish({
+title:`Cute Soul 💖`,
+msg:`Btw, it's your birthday wahaha... Happy birthday zincii. A cute and helpful soul! I love your innocent nature and I definitely love the stories you write! (Keep writing them!🐙) A beautiful and talented soul! Looking forward to many more years of our sisterhood! ❤️💋
+
+-aria`,
+color:"#ffffff"
+});
+
+addWish({
+title:`Happiest Birthday zincupieeee 💗`,
+msg:`Happiest Birthday zincupieeee🤪🥹❤️💋😍🥰🎂🌸🌸💗💗💗💗🧿 Wishing you health, happiness, and everything you’ve been dreaming of this year.🥹🥹🎂🎂🌸🌸💗💗
+You deserve all the love and happiness in the world today and every day🌹😙💫✨`,
+img:`https://files.catbox.moe/pr27sd.jpg`,
+color:"#e6ccff"
+});
+
+addWish({
+title:`Zinchard 🍟`,
+msg:`Happy birthday, Zinchard! I hope you are happy in your life right now and i wish you the best day and years!🎉🎉 (Only for today i'll buy you all fries you want)`,
+img:`https://files.catbox.moe/xxofe9.jpg`,
+color:"#fff3cd"
+});
+
+addWish({
+title:`Bitiya Wish ❤️`,
+msg:`Happiest Birthday, my Bitiya! 🤩 Enjoy your dayy and wishing you a best year ahead!! Ilyyy 💞 
+
+- elyse`,
+img:`https://files.catbox.moe/wqepbk.jpg`,
+color:"#ff9999"
+});
+
+addWish({
+title:`Happy Birthday Zincutie 🧸🎂`,
+msg:`Wishing you lots of happiness, good health, and success in everything you do. Hope your day is filled with good vibes and smiles! 💗
+
+- sin`,
+color:"#ffffff"
+});
+
+addWish({
+title:`Stay Happy Always 💫`,
+msg:`u deserve to be happii alwyss, remember thisss whenever u get stressed or saddd. when u get sad, its not just you who is gonna be sad. its the whole lotta ppl who are around you bec u r such special person who would spread positive vibe around ppl but when u get sad, u cant be positive, ppl who are around u get sad too so for the ppl who care abt u, u should be happii alwyss.. have a great year ahead Zincuuuy!!! all ur wishes will come truee!! 😂
+
+-joe`,
+color:"#ffffff"
 });
