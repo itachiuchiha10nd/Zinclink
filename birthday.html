@@ -8,17 +8,17 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
-/* 🎂 BODY BACKGROUND IMAGE */
+/* 🌸 LIGHT BACKGROUND */
 body{
 font-family:'Segoe UI',sans-serif;
 background:
-linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)),
 url("assets/birthday-bg.jpg");
 background-size:cover;
 background-position:center;
 background-attachment:fixed;
 padding:20px;
-color:#fff;
+color:#000;
 }
 
 /* back */
@@ -40,17 +40,14 @@ text-align:center;
 margin-bottom:20px;
 }
 
-/* masonry layout */
+/* masonry */
 .wall{
 column-count:2;
 column-gap:15px;
 }
 
-/* mobile */
 @media(max-width:700px){
-.wall{
-column-count:1;
-}
+.wall{column-count:1;}
 }
 
 /* cards */
@@ -60,14 +57,13 @@ width:100%;
 margin-bottom:15px;
 padding:15px;
 border-radius:15px;
-box-shadow:0 5px 20px rgba(0,0,0,0.3);
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
 white-space:pre-line;
 break-inside:avoid;
 
 /* glass */
-background:rgba(255,255,255,0.85);
+background:rgba(255,255,255,0.75);
 backdrop-filter:blur(10px);
-color:#000;
 
 transition:.3s;
 }
@@ -93,8 +89,8 @@ border-radius:10px;
 
 <div class="wall" id="wall"></div>
 
-<!-- LOAD WISHES -->
-<script src="./wishes.js?v=2"></script>
+<!-- wishes -->
+<script src="./wishes.js?v=3"></script>
 
 <script>
 window.onload = function(){
@@ -110,7 +106,7 @@ return;
 /* render */
 wishes.forEach(w=>{
 wall.innerHTML += `
-<div class="card" style="background:${w.color || 'rgba(255,255,255,0.85)'}">
+<div class="card" style="background:${w.color || 'rgba(255,255,255,0.75)'}">
 <h3>${w.title || "Birthday Wish 🎂"}</h3>
 <p>${w.msg || ""}</p>
 ${w.img ? `<img src="${w.img}">` : ""}
