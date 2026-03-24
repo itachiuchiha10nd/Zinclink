@@ -8,32 +8,38 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
+/* ✅ smooth scroll */
+html{
+scroll-behavior:smooth;
+}
+
 /* 🎥 video background */
-video.bg-video{
+.bg-video{
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
 object-fit:cover;
-z-index:-1;
+z-index:-2;
 }
 
-/* overlay (light effect) */
+/* light overlay */
 .overlay{
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(255,255,255,0.2);
+background:rgba(255,255,255,0.25);
 z-index:-1;
 }
 
 /* body */
 body{
 font-family:'Segoe UI',sans-serif;
-overflow:hidden;
+overflow-x:hidden;
+overflow-y:auto;
 }
 
 /* back */
@@ -54,8 +60,8 @@ h1{
 text-align:center;
 margin-top:20px;
 color:#333;
-z-index:2;
 position:relative;
+z-index:2;
 }
 
 /* container */
@@ -74,6 +80,7 @@ max-width:400px;
 margin:auto;
 }
 
+/* button */
 .link-button{
 padding:15px;
 border-radius:18px;
@@ -88,11 +95,12 @@ transition:.3s;
 transform:scale(1.05);
 }
 
-/* 🌻 falling */
+/* 🌻 falling flowers */
 .flower{
 position:fixed;
 top:-20px;
 font-size:22px;
+pointer-events:none;
 animation:fall linear infinite;
 }
 
@@ -100,12 +108,31 @@ animation:fall linear infinite;
 0%{transform:translateY(0) translateX(0);}
 100%{transform:translateY(110vh) translateX(50px) rotate(360deg);}
 }
+
+/* 💥 blast */
+.burst{
+position:fixed;
+font-size:22px;
+pointer-events:none;
+animation:burst 1s ease-out forwards;
+}
+
+@keyframes burst{
+0%{
+opacity:1;
+transform:translate(0,0) scale(1);
+}
+100%{
+opacity:0;
+transform:translate(var(--x),var(--y)) scale(0.5);
+}
+}
 </style>
 </head>
 
 <body>
 
-<!-- 🎥 BACKGROUND VIDEO -->
+<!-- 🎥 VIDEO -->
 <video class="bg-video" autoplay muted loop playsinline>
 <source src="assets/sticker-bg.mp4" type="video/mp4">
 </video>
@@ -137,8 +164,9 @@ animation:fall linear infinite;
 
 </div>
 
-<!-- 🌻 flowers -->
 <script>
+
+/* 🌻 falling flowers */
 for(let i=0;i<30;i++){
 let f=document.createElement("div");
 f.className="flower";
@@ -148,7 +176,30 @@ f.style.animationDuration=(5+Math.random()*5)+"s";
 f.style.opacity=Math.random();
 document.body.appendChild(f);
 }
+
+/* 💥 click blast */
+document.addEventListener("click",(e)=>{
+for(let i=0;i<15;i++){
+
+let p=document.createElement("div");
+p.className="burst";
+p.innerHTML="🌻";
+
+let x=(Math.random()*300-150)+"px";
+let y=(Math.random()*300-150)+"px";
+
+p.style.left=e.clientX+"px";
+p.style.top=e.clientY+"px";
+p.style.setProperty("--x",x);
+p.style.setProperty("--y",y);
+
+document.body.appendChild(p);
+
+setTimeout(()=>p.remove(),1000);
+}
+});
+
 </script>
 
 </body>
-  </html>
+</html>
