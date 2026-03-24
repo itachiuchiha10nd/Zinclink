@@ -8,7 +8,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
-/* 🌸 LIGHT BACKGROUND */
+/* 🌸 LIGHT BACKGROUND IMAGE */
 body{
 font-family:'Segoe UI',sans-serif;
 background:
@@ -21,7 +21,7 @@ padding:20px;
 color:#000;
 }
 
-/* back */
+/* back button */
 .back{
 position:fixed;
 top:10px;
@@ -40,7 +40,7 @@ text-align:center;
 margin-bottom:20px;
 }
 
-/* masonry */
+/* masonry layout */
 .wall{
 column-count:2;
 column-gap:15px;
@@ -61,7 +61,6 @@ box-shadow:0 5px 20px rgba(0,0,0,0.2);
 white-space:pre-line;
 break-inside:avoid;
 
-/* glass */
 background:rgba(255,255,255,0.75);
 backdrop-filter:blur(10px);
 
@@ -78,6 +77,13 @@ width:100%;
 margin-top:10px;
 border-radius:10px;
 }
+
+/* audio */
+audio{
+width:100%;
+margin-top:10px;
+border-radius:10px;
+}
 </style>
 </head>
 
@@ -89,27 +95,37 @@ border-radius:10px;
 
 <div class="wall" id="wall"></div>
 
-<!-- wishes -->
-<script src="./wishes.js?v=3"></script>
+<!-- wishes data -->
+<script src="./wishes.js?v=5"></script>
 
 <script>
 window.onload = function(){
 
 const wall = document.getElementById("wall");
 
-/* safety */
+/* safety check */
 if(typeof wishes === "undefined"){
 wall.innerHTML = "<h2 style='color:red;text-align:center'>❌ wishes.js not loaded</h2>";
 return;
 }
 
-/* render */
+/* render wishes */
 wishes.forEach(w=>{
 wall.innerHTML += `
 <div class="card" style="background:${w.color || 'rgba(255,255,255,0.75)'}">
+
 <h3>${w.title || "Birthday Wish 🎂"}</h3>
+
 <p>${w.msg || ""}</p>
+
 ${w.img ? `<img src="${w.img}">` : ""}
+
+${w.audio ? `
+<audio controls>
+<source src="${w.audio}" type="audio/ogg">
+</audio>
+` : ""}
+
 </div>
 `;
 });
