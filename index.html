@@ -18,7 +18,7 @@
 /* 🌙 Dark */
 body.dark{
 --bg:#0d1025;
---text:#ffffff;
+--text:#fff;
 --card:rgba(255,255,255,0.1);
 }
 
@@ -41,7 +41,7 @@ z-index:0;
 /* container */
 .container{
 position:relative;
-z-index:1;
+z-index:2;
 text-align:center;
 padding:20px;
 }
@@ -52,8 +52,6 @@ width:120px;
 height:120px;
 border-radius:50%;
 }
-
-h1{margin-top:10px}
 
 /* buttons */
 .buttons{
@@ -83,7 +81,7 @@ top:10px;
 right:10px;
 display:flex;
 gap:10px;
-z-index:999;
+z-index:10;
 }
 
 .control-btn{
@@ -96,14 +94,18 @@ cursor:pointer;
 .frieren-character{
 position:absolute;
 width:90px;
+z-index:5;
 cursor:pointer;
 }
+
 .frieren-character img{
 width:100%;
+pointer-events:none;
 animation:float 3s infinite;
 }
+
 @keyframes float{
-50%{transform:translateY(-10px)}
+50%{transform:translateY(-10px);}
 }
 </style>
 </head>
@@ -118,7 +120,6 @@ animation:float 3s infinite;
 </div>
 
 <div class="container">
-
 <div class="profile">
 <img src="assets/profile.jpg">
 <h1>✨ ZINCLINK ✨</h1>
@@ -127,9 +128,8 @@ animation:float 3s infinite;
 <div class="buttons">
 <a href="stickers.html" class="btn">🍭 ZINC STICKER</a>
 <a href="birthday.html" class="btn">🎂 BIRTHDAY WALL</a>
-<a href="links.html" class="btn">🔗 ZINC LINKS💗</a>
+<a href="links.html" class="btn">🔗 ALL LINKS</a>
 </div>
-
 </div>
 
 <audio id="bgMusic" loop>
@@ -137,59 +137,115 @@ animation:float 3s infinite;
 </audio>
 
 <script>
-// 🌙 theme
-const body=document.body;
-const themeBtn=document.getElementById('themeToggle');
 
-themeBtn.onclick=()=>{
-body.classList.toggle('dark');
+/* 🌙 THEME */
+const body=document.body;
+document.getElementById("themeToggle").onclick=()=>{
+body.classList.toggle("dark");
 };
 
-// 🎵 music
-const music=document.getElementById('bgMusic');
+/* 🎵 MUSIC */
+const music=document.getElementById("bgMusic");
 let playing=false;
-document.getElementById('musicToggle').onclick=()=>{
+document.getElementById("musicToggle").onclick=()=>{
 if(!playing){music.play();playing=true;}
 else{music.pause();playing=false;}
 };
 
-// 🌌 sky
+/* 🌌 STAR BLINK */
 const canvas=document.getElementById('sky');
 const ctx=canvas.getContext('2d');
+
 canvas.width=innerWidth;
 canvas.height=innerHeight;
 
 let stars=[];
-for(let i=0;i<100;i++){
-stars.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2});
+for(let i=0;i<120;i++){
+stars.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+o:Math.random()
+});
 }
 
 function draw(){
 ctx.clearRect(0,0,canvas.width,canvas.height);
-ctx.fillStyle="white";
+
 stars.forEach(s=>{
+s.o += (Math.random()-0.5)*0.05;
+if(s.o<0)s.o=0;
+if(s.o>1)s.o=1;
+
+ctx.fillStyle=`rgba(255,255,255,${s.o})`;
 ctx.beginPath();
 ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
 ctx.fill();
 });
+
 requestAnimationFrame(draw);
 }
 draw();
 
-// 🧝 frieren
-["assets/frieren1.gif","assets/frieren2.gif","assets/frieren3.gif"].forEach(src=>{
+/* 🧝 FRIEREN SYSTEM */
+const gifs=[
+"assets/frieren1.gif",
+"assets/frieren2.gif",
+"assets/frieren3.gif"
+];
+
+const frierens=[];
+let active=null;
+
+gifs.forEach(src=>{
 let f=document.createElement("div");
 f.className="frieren-character";
+
 let img=document.createElement("img");
 img.src=src;
+
 f.appendChild(img);
 document.body.appendChild(f);
 
+/* start pos */
 f.style.left=Math.random()*80+"vw";
 f.style.top=Math.random()*70+"vh";
 
-f.onclick=()=>{music.play()};
+frierens.push(f);
+
+/* click follow */
+f.onclick=()=>{
+active=f;
+
+/* jump */
+f.style.transform="translateY(-40px)";
+setTimeout(()=>f.style.transform="none",400);
+
+music.currentTime=0;
+music.play();
+};
 });
+
+/* follow */
+document.addEventListener("mousemove",(e)=>{
+if(active){
+active.style.left=(e.clientX-70)+"px";
+active.style.top=(e.clientY-70)+"px";
+active.style.transition="0.2s linear";
+}
+});
+
+/* random move */
+setInterval(()=>{
+frierens.forEach(f=>{
+if(f!==active){
+f.style.left=Math.random()*90+"vw";
+f.style.top=Math.random()*90+"vh";
+f.style.transition="2s linear";
+}
+});
+},2000);
+
 </script>
 
 </body>
