@@ -109,7 +109,7 @@ title:`hello gandaaaaa 💜`,
 msg:`happiest birthday sayooooo. ang wish q for u is to be genuinely happy and i hope na merong kang peace of mind. sana maging masaya ang araw mo today coz it's ur birthday, its ur special day. and also sana lahat ng hihilingin mo or like dreams mo is makuha/matupad mo. and i just wanna sayyyy thank u for being one of my tg friendsss. sana mas maging close pa tayoooo and hope to see u soon. luv u gandaaa 🫶🏻🫶🏻
 
 --omscutie 🥳`,
-color:"#e6ccff"
+color:"#ff00ff"
 });
 
 addWish({
