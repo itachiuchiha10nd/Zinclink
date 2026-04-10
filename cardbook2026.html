@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Birthday Wishes 2026 💌</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+height:100vh;
+overflow:hidden;
+font-family:'Segoe UI',sans-serif;
+background:url("assets/birthday-bg.jpg") center/cover no-repeat;
+}
+
+/* BACK */
+.back{
+position:absolute;
+top:15px;
+left:15px;
+padding:8px 16px;
+background:#ff6eb4;
+color:#fff;
+border:none;
+border-radius:20px;
+z-index:10;
+}
+
+/* 🎯 CARD AREA */
+.card-area{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%) scale(0.25);
+width:1070px;
+height:690px;
+}
+
+/* 💳 CARD */
+.card{
+position:absolute;
+width:100%;
+height:100%;
+border-radius:25px;
+padding:40px;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:flex-start;
+
+text-align:center;
+background:rgba(255,255,255,0.92);
+box-shadow:0 20px 40px rgba(0,0,0,0.3);
+
+overflow-y:auto;
+scroll-behavior:smooth;
+
+transition:transform .5s, opacity .5s;
+}
+
+/* TEXT */
+.card-content{
+width:100%;
+}
+
+/* MEDIA */
+.card img,
+.card video{
+width:100%;
+max-height:260px;
+object-fit:contain;
+border-radius:12px;
+margin-top:10px;
+}
+
+/* STATES */
+.card{
+transform:translateX(-160px) scale(0.75);
+opacity:0.5;
+}
+
+.card.active{
+transform:translateX(0) scale(1);
+opacity:1;
+z-index:5;
+}
+
+.card.next{
+transform:translateX(160px) scale(0.8);
+opacity:0.7;
+z-index:4;
+}
+</style>
+</head>
+
+<body>
+
+<button class="back" onclick="history.back()">Back</button>
+
+<div class="card-area" id="cardArea"></div>
+
+<script src="wishes2026.js"></script>
+
+<script>
+
+/* LOAD */
+const area=document.getElementById("cardArea");
+
+if(typeof wishes==="undefined"){
+area.innerHTML="<h2 style='color:red'>❌ wishes2026.js missing</h2>";
+}else{
+
+wishes.forEach(w=>{
+
+let div=document.createElement("div");
+div.className="card";
+
+div.innerHTML=`
+<div class="card-content">
+
+<h2>${w.title || "Birthday Wish 🎂"}</h2>
+
+<p>${w.msg || ""}</p>
+
+${w.img ? `<img src="${w.img}">` : ""}
+
+${w.video ? `<video src="${w.video}" controls></video>` : ""}
+
+${w.audio ? `<audio controls><source src="${w.audio}"></audio>` : ""}
+
+</div>
+`;
+
+area.appendChild(div);
+
+/* 🔥 AUTO TEXT FIT */
+setTimeout(()=>{
+autoFit(div.querySelector(".card-content"));
+},50);
+
+});
+
+}
+
+/* AUTO FIT SYSTEM */
+function autoFit(el){
+
+let size=28;
+let min=14;
+
+el.style.fontSize=size+"px";
+
+while(el.scrollHeight > el.parentElement.clientHeight && size > min){
+size--;
+el.style.fontSize=size+"px";
+}
+
+/* अगर बहुत बड़ा है तो scroll allow */
+if(size <= min){
+el.parentElement.style.overflowY="auto";
+}
+}
+
+/* CARD SYSTEM */
+let cards=document.querySelectorAll(".card");
+let index=0;
+
+function update(){
+cards.forEach((c,i)=>{
+c.classList.remove("active","next");
+
+if(i===index) c.classList.add("active");
+else if(i===index+1) c.classList.add("next");
+});
+}
+update();
+
+/* DRAG */
+let startX=0,currentX=0,isDrag=false;
+
+area.addEventListener("touchstart",e=>{
+startX=e.touches[0].clientX;
+isDrag=true;
+});
+
+area.addEventListener("touchmove",e=>{
+if(!isDrag)return;
+currentX=e.touches[0].clientX;
+
+let diff=currentX-startX;
+let active=cards[index];
+
+active.style.transition="none";
+active.style.transform=`translateX(${diff}px) scale(1)`;
+});
+
+area.addEventListener("touchend",()=>{
+let diff=currentX-startX;
+isDrag=false;
+
+if(diff<-120 && index<cards.length-1) index++;
+else if(diff>120 && index>0) index--;
+
+update();
+});
+
+/* MOUSE */
+area.addEventListener("mousedown",e=>{
+startX=e.clientX;
+isDrag=true;
+});
+
+area.addEventListener("mousemove",e=>{
+if(!isDrag)return;
+currentX=e.clientX;
+
+let diff=currentX-startX;
+let active=cards[index];
+
+active.style.transition="none";
+active.style.transform=`translateX(${diff}px) scale(1)`;
+});
+
+area.addEventListener("mouseup",()=>{
+let diff=currentX-startX;
+isDrag=false;
+
+if(diff<-120 && index<cards.length-1) index++;
+else if(diff>120 && index>0) index--;
+
+update();
+});
+
+</script>
+
+</body>
+</html>
