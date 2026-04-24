@@ -1,0 +1,152 @@
+here<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Wall 🎂</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+/* 🌸 background */
+body{
+font-family:'Segoe UI',sans-serif;
+background:
+linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)),
+url("assets/birthday1-bg.jpg");
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+padding:20px;
+}
+
+/* back */
+.back{
+position:fixed;
+top:10px;
+left:10px;
+background:#ffffffcc;
+padding:8px 12px;
+border-radius:10px;
+text-decoration:none;
+color:#000;
+z-index:1000;
+}
+
+/* title */
+h1{
+text-align:center;
+margin-bottom:20px;
+}
+
+/* 🎯 2 COLUMN LAYOUT */
+.wall{
+display:flex;
+gap:15px;
+}
+
+.column{
+flex:1;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+/* 📱 mobile */
+@media(max-width:700px){
+.wall{
+flex-direction:column;
+}
+}
+
+/* 🎂 card */
+.card{
+padding:15px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
+
+background:rgba(255,255,255,0.75);
+backdrop-filter:blur(10px);
+
+white-space:pre-line;
+transition:.3s;
+}
+
+.card:hover{
+transform:scale(1.02);
+}
+
+/* image */
+.card img{
+width:100%;
+margin-top:10px;
+border-radius:10px;
+}
+
+/* audio */
+audio{
+width:100%;
+margin-top:10px;
+border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<a href="index.html" class="back">⬅ Back</a>
+
+<h1>🎂 Birthday Wall 🎂</h1>
+
+<div class="wall">
+<div class="column" id="left"></div>
+<div class="column" id="right"></div>
+</div>
+
+<script src="./wishes.js?v=6"></script>
+
+<script>
+window.onload = function(){
+
+const left = document.getElementById("left");
+const right = document.getElementById("right");
+
+if(typeof wishes === "undefined"){
+document.body.innerHTML = "<h2 style='color:red;text-align:center'>❌ wishes.js not loaded</h2>";
+return;
+}
+
+/* 🎯 split wishes */
+wishes.forEach((w, i)=>{
+
+let card = document.createElement("div");
+card.className="card";
+card.style.background = w.color || "rgba(255,255,255,0.75)";
+
+card.innerHTML = `
+<h3>${w.title || "Birthday Wish 🎂"}</h3>
+<p>${w.msg || ""}</p>
+
+${w.img ? `<img src="${w.img}">` : ""}
+
+${w.audio ? `
+<audio controls>
+<source src="${w.audio}" type="audio/mpeg">
+</audio>
+` : ""}
+`;
+
+/* even → left, odd → right */
+if(i % 2 === 0){
+left.appendChild(card);
+}else{
+right.appendChild(card);
+}
+
+});
+
+};
+</script>
+
+</body>
+</html>
