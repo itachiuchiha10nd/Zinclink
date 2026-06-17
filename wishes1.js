@@ -141,3 +141,39 @@ I hope you get all that you desire and always stay happy! ✨✨
 - Rishabh`,
   color:"#ffffff"
   });
+
+addWish({
+title:"Happiesttt Birthday My Zincuuuu 🤩",
+msg:`happiesttt birthday my zincuuuu!! 🤩🤩
+
+pls do know na im always hereee huhu super busy lang talaga me latelyyyy.
+
+pero thank uuu for not losing contact with me.
+
+u'll always have a special place in my hypothalamus 😘😘
+
+lotsaaaa loveee ❤️
+
+Save the best for last? emz haha
+
+-tan`,
+color:"#ffa500"
+});
+
+addWish({
+title:"Happy Birthdayyy, Zinc! 💙",
+msg:`Happy Birthdayyy, Zinc!
+
+One of my closest person here, like literally closest based on distance cz ur just in the nxt city.
+
+Maybe one day maka meet up ta puhon.
+
+Thank you for being such a thoughtful person and for being one of the reasons why I got to meet such amazing people here.
+
+I really hope you had fun today! 💙
+
+xoxo, Nami
+
+-nami`,
+color:"#87ceeb"
+});
