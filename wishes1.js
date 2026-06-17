@@ -104,3 +104,13 @@ always ka sanang happy and healthy (kahit puyat madalas haha) 💕
 img:"https://files.catbox.moe/roo1aa.jpg",
 color:"#87ceeb"
 });
+
+addWish({
+title:"Birthday Video 🎥",
+msg:"A special memory for Zinc
+-Akarsh ❤️",
+
+video:"assets/akarsh.mp4",
+
+color:"#ffd6e0"
+});
