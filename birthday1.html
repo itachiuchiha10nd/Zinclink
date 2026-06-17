@@ -1,4 +1,4 @@
-here<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -51,6 +51,24 @@ display:flex;
 flex-direction:column;
 gap:15px;
 }
+  
+  ${w.link ? `
+<a href="${w.link}"
+target="_blank"
+style="
+display:inline-block;
+margin-top:12px;
+padding:12px 20px;
+background:#ff6eb4;
+color:white;
+border-radius:12px;
+text-decoration:none;
+font-weight:bold;
+box-shadow:0 0 15px rgba(255,110,180,.5);
+">
+${w.linkText || "🔗 Open Link"}
+</a>
+` : ""}
 
 /* 📱 mobile */
 @media(max-width:700px){
