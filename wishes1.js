@@ -113,3 +113,31 @@ msg:`A special memory for Zinc
 video:`assets/akarsh.mp4`,
 color:`#ffd6e0`
 });
+
+addWish({
+title:"Happy Birthday Zinx 🎂",
+msg:`Happyyy birthday zinx
+
+i dont think i need to write a whole paragraph to describe how our friendship has grown over the last 2 years.
+
+we barely talk nowadays since we are all too busy with our lives, but you better not forget me in the years to come.
+
+-Ax3l`,
+color:"#d3d3d3"
+});
+
+addWish({
+title:"Hello Mother 🎉",
+msg:`Hello mother.
+
+Wishing you a very Happy Birthday!!!
+
+Idk how old you are, but that doesn’t even matter.
+
+You’re awesome and make the atmosphere so lively!
+
+I hope you get all that you desire and always stay happy! ✨✨
+
+- Rishabh`,
+  color:"#ffffff"
+  });
