@@ -66,6 +66,7 @@ msg:`𝙸 𝚍𝚘𝚗’𝚝 𝚔𝚗𝚘𝚠 𝚑𝚘𝚠 𝚢𝚘𝚞 𝚍�
 
 𝗦𝗨𝗥𝗣𝗥𝗜𝗦𝗘 💗
 
+- AKARSH 💝
 𝙴𝚗𝚓𝚘𝚢 𝚢𝚘𝚞𝚛 𝚍𝚊𝚢 🎂✨`,
 img:"https://files.catbox.moe/t6yg9j.jpg",
 link:"https://itachiuchiha10nd.github.io/Zinchbd/",
