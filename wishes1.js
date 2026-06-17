@@ -106,11 +106,10 @@ color:"#87ceeb"
 });
 
 addWish({
-title:"Birthday Video 🎥",
-msg:"A special memory for Zinc
-- Akarsh,
+title:`Birthday Video 🎥`,
+msg:`A special memory for Zinc
 
-video:"assets/akarsh.mp4",
-
-color:"#ffd6e0"
+- Akarsh`,
+video:`assets/akarsh.mp4`,
+color:`#ffd6e0`
 });
