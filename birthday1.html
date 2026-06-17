@@ -172,10 +172,22 @@ ${w.video ? `
 </video>
 ` : ""}
 
-${w.audio ? `
-<audio controls>
-<source src="${w.audio}" type="audio/mpeg">
-</audio>
+${w.video ? `
+<video
+autoplay
+muted
+loop
+playsinline
+controls
+preload="auto"
+style="
+width:100%;
+margin-top:10px;
+border-radius:10px;
+">
+<source src="${w.video}" type="video/mp4">
+Your browser does not support video.
+</video>
 ` : ""}
 
 ${w.link ? `
