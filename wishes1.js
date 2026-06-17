@@ -25,3 +25,31 @@ May this year be amaZinc, just like you :3
 - REN`,
   color:"#d4edda"
   });
+
+addWish({
+title:"Happy Belated Birthday, Zincotieee 🤍",
+msg:`Hiii my cutiee zincotieee, happy belated birthday to this sissy of mine. May this new age bring you more happiness and gratefulness than ever.
+
+Thank you for being such a kind and great friend for me. Even though, we haven't been playing much these days but to me you're still one of the precious sissy of mine.
+
+Have a great day and may you bloom even beautifully 🤍🤍🤍
+
+-karina`,
+color:"#fff9c4"
+});
+
+addWish({
+title:"Happy Birthday Zinc! 🤍",
+msg:`Wow finally riyal birthday. I still remember you and Karina used sing on VC and it used to be so fun.
+
+It has almost been 2 years since I met you. So much changed but I'm glad we stayed in touch. I hope even in future, we'll be there to support each other always.
+
+You're so cute. When singing again?
+
+Enjoy your day to the fullest Zinci <3
+
+I love you 🤍
+
+-aria`,
+color:"#f5deb3"
+});
