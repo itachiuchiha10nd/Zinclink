@@ -73,3 +73,31 @@ link:"https://itachiuchiha10nd.github.io/Zinchbd/",
 linkText:"🎁 SURPRISE 💗",
 color:"linear-gradient(135deg,#ffd6e7,#e6ccff,#ffe4f2)"
 });
+
+addWish({
+title:"Happiest Birthday QUTUUUU 💗",
+msg:`wishes you a beautiful day of happiness💕 enjoy ur birthday and have a wonderful year 🥳🎂🎁🎉
+
+Happiest Birthday QUTUUUU💗
+
+today and every day wishes only the best for u ❤️❤️❤️
+
+-priyaa", img:"https://files.catbox.moe/nzt0yc.jpg`,
+color:"#ffb6c1"
+});
+
+addWish({
+title:"Habaduuuuu, Milkt—Este Zinc! 🥳",
+msg:`habaduuuuu, milkt—este zinc! 🥳
+
+i wish u all the nice things in the world cuz u deserve it sm for being such a good friend to me.
+
+sa lagi mong pags-share ng free stuffs sakin at pagpasabit mwahaha also sa pagi-inv sakin maglaro ng horror games & now nood ng horror movies.
+
+dahil sayo nag-improve tolerance q sa horror 😂 and for that im grateful like frfr ngl.
+
+always ka sanang happy and healthy (kahit puyat madalas haha) 💕
+
+-mosh", img:"https://files.catbox.moe/roo1aa.jpg`,
+color:"#87ceeb"
+});
