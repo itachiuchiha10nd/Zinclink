@@ -107,7 +107,7 @@ color:"#87ceeb"
 
 addWish({
 title:"Birthday Video 🎥",
-msg:"A special memory for Zinc
+msg:"'A special memory for Zinc
 -Akarsh' ❤️",
 
 video:"assets/akarsh.mp4",
