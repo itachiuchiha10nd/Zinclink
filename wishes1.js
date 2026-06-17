@@ -82,7 +82,7 @@ Happiest Birthday QUTUUUU💗
 
 today and every day wishes only the best for u ❤️❤️❤️
 
--priyaa", img:"https://files.catbox.moe/nzt0yc.jpg`,
+-priyaa", img:"https://files.catbox.moe/nzt0yc.jpg",
 color:"#ffb6c1"
 });
 
@@ -98,6 +98,7 @@ dahil sayo nag-improve tolerance q sa horror 😂 and for that im grateful like 
 
 always ka sanang happy and healthy (kahit puyat madalas haha) 💕
 
--mosh", img:"https://files.catbox.moe/roo1aa.jpg`,
+-mosh",
+img:"https://files.catbox.moe/roo1aa.jpg",
 color:"#87ceeb"
 });
