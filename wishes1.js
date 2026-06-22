@@ -179,8 +179,8 @@ color:"#87ceeb"
 });
 
 addWish({
-title:"The Most Beautiful Girl ❤️",
-msg:`happiest birthday to "The most beautiful girl, inside and out"
+title: "The Most Beautiful Girl ❤️",
+msg: `happiest birthday to "The most beautiful girl, inside and out"
 
 u come in my life so unexpectedly and it was the best thing in the world.
 
@@ -200,5 +200,7 @@ keep growing and glowing Qutuuuu Zincuuupieeeee 😗
 
 love u so much ❤️❤️❤️❤️🎂🎂🎂🎂🥳🥳🥳🥳🥳💗💗💗😚😚😚🥹🥹🥹
 
-- priyaa", img:"https://files.catbox.moe/uz5go0.jpg", color:"#C8A2FF`
+- priyaa`,
+  img: "https://files.catbox.moe/uz5go0.jpg",
+  color: "#C8A2FF"
   });
