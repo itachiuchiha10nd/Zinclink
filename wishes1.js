@@ -202,3 +202,32 @@ love u so much ❤️❤️❤️❤️🎂🎂🎂🎂🥳🥳🥳🥳🥳💗�
 
 - priyaa", img:"https://files.catbox.moe/uz5go0.jpg", color:"#c8a2ff`
   });
+
+addWish({
+title:"Happyyy Birthdayyy Zincuuuu 💛",
+msg:`Happyyy Birthdayyy Zincuuuu, my kiddooo 💛
+
+U are honestly one of the nicest and sweetest ppl I've met here.
+
+I really love how u are always happy and positive. It's something that makes everyone around u feel good too.
+
+Always stay like this, smiling and spreading positive vibes wherever u go.
+
+I truly wish that u always stay happy in life and get to do everything u love.
+
+U deserve all the good things, all the success, and all the happiness in the world.
+
+Never stop being yourself, because that’s what makes u so special.
+
+U are that one friend anyone would wanna keep forever, and I’m really glad to have u.
+
+I hope this bdayy brings you lotta smiles and beautiful memories.
+
+Have an amazing day and an even more amazing year ahead, kiddooo 💖
+
+Happyyy birthday once againn!!
+
+Lots and lots of loveeee 🤍
+
+- joe", color:"#40E0D0`
+  });
