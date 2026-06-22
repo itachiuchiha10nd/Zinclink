@@ -162,9 +162,9 @@ card.innerHTML=`
 
 <p>${w.msg || ""}</p>
 
-${w.img ? `
-<img src="${w.img}" onclick="openImage('${w.img}')">
-` : ""}
+${w.img ? "<img src="${w.img}" onclick="openImage('${w.img}')">" : ""}
+
+${w.img2 ? "<img src="${w.img2}" onclick="openImage('${w.img2}')">" : ""}
 
 ${w.video ? `
 <video
