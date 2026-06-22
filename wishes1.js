@@ -177,3 +177,28 @@ xoxo, Nami
 -nami`,
 color:"#87ceeb"
 });
+
+addWish({
+title:"The Most Beautiful Girl ❤️",
+msg:`happiest birthday to "The most beautiful girl, inside and out"
+
+u come in my life so unexpectedly and it was the best thing in the world.
+
+thank you for always being there no matter what!
+
+i don't know what to say.
+
+i love being what u aree!!
+
+u know my deepest secrets and u make sure to keep them safe with uhh.
+
+Through every high and low, you've been right by my side.
+
+A friend who became family.
+
+keep growing and glowing Qutuuuu Zincuuupieeeee 😗
+
+love u so much ❤️❤️❤️❤️🎂🎂🎂🎂🥳🥳🥳🥳🥳💗💗💗😚😚😚🥹🥹🥹
+
+- priyaa", img:"https://files.catbox.moe/uz5go0.jpg", color:"#c8a2ff`
+  });
