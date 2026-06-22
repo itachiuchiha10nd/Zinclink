@@ -252,3 +252,20 @@ msg:`𝕐𝕠𝕦 𝕤𝕥𝕒𝕟𝕕 𝕗𝕚𝕣𝕞, 𝕒 𝕤𝕙𝕚𝕖�
 
 - morningstar", img:"https://files.catbox.moe/ppw0g5.jpg", color:"#6F4E37`
   });
+
+addWish({
+title:`Happy Birthday, Ganda 💙`,
+msg:`Happy birthday, ganda
+
+- oms/skit`,
+img:`https://files.catbox.moe/fxfwsy.jpg`,
+img2:`https://files.catbox.moe/gjary2.jpg`,
+color:`#00FFFF`
+});
+
+addWish({
+title:`Happy Birthday, Ganda 🎥`,
+msg:`From oms/skit`,
+video:`assets/skit.mp4`,
+color:`#00FFFF`
+});
