@@ -200,7 +200,9 @@ keep growing and glowing Qutuuuu Zincuuupieeeee 😗
 
 love u so much ❤️❤️❤️❤️🎂🎂🎂🎂🥳🥳🥳🥳🥳💗💗💗😚😚😚🥹🥹🥹
 
-- priyaa", img:"https://files.catbox.moe/uz5go0.jpg", color:"#c8a2ff`
+- priyaa`,
+img:"https://files.catbox.moe/uz5go0.jpg",
+color:"#C8A2FF"
   });
 
 addWish({
@@ -229,7 +231,8 @@ Happyyy birthday once againn!!
 
 Lots and lots of loveeee 🤍
 
-- joe", color:"#40E0D0`
+- joe`,
+color:"#40E0D0"
   });
 
 addWish({
@@ -250,22 +253,24 @@ msg:`𝕐𝕠𝕦 𝕤𝕥𝕒𝕟𝕕 𝕗𝕚𝕣𝕞, 𝕒 𝕤𝕙𝕚𝕖�
 
 𝓗𝓪𝓹𝓹𝓲𝓮𝓼𝓽 𝓑𝓲𝓻𝓽𝓱𝓭𝓪𝔂, 𝓖𝓾𝓪𝓻𝓭𝓲𝓪𝓷 𝓐𝓷𝓰𝓮𝓵! 👼🪽
 
-- morningstar", img:"https://files.catbox.moe/ppw0g5.jpg", color:"#6F4E37`
+- morningstar`,
+img:"https://files.catbox.moe/ppw0g5.jpg",
+color:"#6F4E37`
   });
 
 addWish({
-title:`Happy Birthday, Ganda 💙`,
+title:"Happy Birthday, Ganda 💙",
 msg:`Happy birthday, ganda
 
 - oms/skit`,
-img:`https://files.catbox.moe/fxfwsy.jpg`,
-img2:`https://files.catbox.moe/gjary2.jpg`,
-color:`#00FFFF`
-});
+img:"https://files.catbox.moe/fxfwsy.jpg",
+color"https://files.catbox.moe/gjary2.jpg",
+color:"#00FFFF`
+  });
 
 addWish({
-title:`Happy Birthday, Ganda 🎥`,
-msg:`From oms/skit`,
-video:`assets/skit.mp4`,
-color:`#00FFFF`
+title:"Happy Birthday, Ganda 🎥",
+msg:"From oms/skit",
+video:"assets/skit.mov",
+color:"#00FFFF`
 });
