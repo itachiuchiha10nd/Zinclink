@@ -157,39 +157,17 @@ card.className="card";
 
 card.style.background=w.color || "rgba(255,255,255,.8)";
 
-card.innerHTML=`
-<h3>${w.title || "Birthday Wish 🎂"}</h3>
+card.innerHTML = `
 
-<p>${w.msg || ""}</p>
-
-${w.img ? "<img src="${w.img}" onclick="openImage('${w.img}')">" : ""}
+<h3>${w.title || "Birthday Wish 🎂"}</h3><p>${w.msg || ""}</p>${w.img ? "<img src="${w.img}" onclick="openImage('${w.img}')">" : ""}
 
 ${w.img2 ? "<img src="${w.img2}" onclick="openImage('${w.img2}')">" : ""}
 
-${w.video ? `
-<video
-autoplay
-muted
-loop
-playsinline
-controls
-preload="auto"
-style="
-width:100%;
-margin-top:10px;
-border-radius:10px;
-">
-<source src="${w.video}" type="video/mp4">
-Your browser does not support video.
-</video>
-` : ""}
+${w.video ? "<video autoplay muted loop playsinline controls preload="auto" style=" width:100%; margin-top:10px; border-radius:10px; "> <source src="${w.video}" type="video/mp4"> </video>" : ""}
 
-${w.link ? `
-<a href="${w.link}" target="_blank" class="link-btn">
-${w.linkText || "🔗 Open Link"}
-</a>
-` : ""}
+${w.link ? "<a href="${w.link}" target="_blank" class="link-btn"> ${w.linkText || "🔗 Open Link"} </a>" : ""}
 `;
+  
 
 if(i % 2 === 0){
 left.appendChild(card);
