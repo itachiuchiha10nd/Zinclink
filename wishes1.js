@@ -302,3 +302,60 @@ msg: `𝑍𝑖𝑛𝑐 happy birthday
 - susmit`,
   color: "#FFDAB9"
   });
+
+addWish({
+title: "ZINC BIRTHDAY SP 🐺",
+msg: `«⎯⎯⎯⎯⎯⎯ 🏆 ⎯⎯⎯⎯⎯⎯»
+᛭ Zinc's phewraf - Cultist 👤 (🔫) +34 (17458) 📛 🎫
+᛭ Zinc's Frappe - Cultist 👤 +16 (4417)
+᛭ Zinc's Buto - Cultist 👤 (👱) +14 (10673) 📦
+∙ zinc's long nails - Cultist 👤 +13 (19096)
+᛭ zinc's whats the nice - Cultist 👤 (👷) +13 (1602) 📦
+∙ Zinc's hope - Cultist 👤 (⏳) +11 (1205)
+᛭ Zinc’s silingan 💵 - Cultist 👤 (⚒) +10 (31017) 🎫 📦
+᛭ Zinc's Milktea - Cultist 👤 (👷) +10 (5829) 📦
+∙ 𝑍𝑖𝑛𝑐 - Cultist 👤 (👱) +8 (6751)
+
+«⎯⎯⎯⎯⎯⎯ ✘ ⎯⎯⎯⎯⎯⎯»
+᛭ Itachi - Arsonist 🔥 +2 (14870)
+᛭ Zinc's miracle - Harlot 💋 +1 (2157)
+᛭ Zinc's Hypothesis - Preacher 🛐 +1 (3945)
+᛭ Zinc 's reemedy - Wolf Cub 🐶 +1 (1606)
+᛭ Zinc's Clipboard - Conjurer Wolf 🐺✨ 0 (1000)
+᛭ Poppy. 🐒🍷 Eid - Serial Killer 🔪 0 (3301)
+᛭ Zinc's Crush - Villager 👱 0 (2975)
+᛭ Zinc's Beau Frère - Sandman 💤 0 (9366)
+᛭ Zinc’s dead brain cell - Illusionist 🐺🪄 0 (9006)
+᛭ Zinc's gray - Lycan 🐺🌝 0 (5057)
+᛭ Zinc's Lovely - Sorcerer 🔮 -1 (10184)
+᛭ Zinc's Fridge - Villager 👱 -1 (6513)
+᛭ Zinc's classmate - Shadow Wolf 🐺🌚 -1 (5328)
+᛭ Zinc's left butt - Depressive 😨 -1 (13520)
+᛭ Zinc's Yeshicote - Detective 🕵 -1 (12818)
+᛭ zinc's Sae Itoshi - Villager 👱 -1 (8953)
+᛭ Zinc's Keychain - Pawn ♟ -1 (5088)
+᛭ Zinc's ⅒ remaining brain - Chemist 👨‍🔬 -1 (6468)
+᛭ Zinc's MorningStar - Miner ⛏ -1 (1989)
+᛭ zinc's boob - Guardian Angel 👼 -1 (3721)
+᛭ Zinc’s Dragon - Troublemaker 🤯 -1 (20165)
+᛭ Zinc’s right butt - Seer 👳 -1 (2435)
+᛭ Zinc's Ice Cream - Rogue Wolf 🐺🧧 -2 (9986)
+᛭ Zinc's fake frnd - Villager 👱 -2 (1069)
+᛭ Zinc's Bad Influence - Villager 👱 -2 (1392)
+᛭ Zinc’s goodness - Seer 👳 -2 (22193)
+᛭ Zinc’s girl🍓❤️ - Villager 👱 -2 (1316)
+᛭ Zinc's - Cultist Hunter 💂 -2 (1198)
+᛭ zinc's left cheek - Snow Wolf 🐺☃️ -3 (1954)
+᛭ Zinc’s Tactical Shotgun - Wolf 🐺 -3 (7512)
+᛭ Zinc's yumeko jabami - Villager 👱 -4 (6372)
+᛭ Zinc's online Pokemon - Beholder 👁 -4 (8580)
+᛭ Zinc's grey hair - Villager 👱 -4 (1227)
+᛭ Zinc's stupid brain 🧠 - Fool 🃏 -4 (1453)
+᛭ [AFK] Zinc's last brain cell - Pacifist ☮️ -5 (1222)
+᛭ Zinc’s Un gars la - Executioner 🦸‍♂️ -5 (16085)
+᛭ Zinc’s Soul - Oracle 🌀 -6 (2907) 🎫
+
+Amnesiacs Alive : 3 / 46
+Game Length: 00:40:12`,
+color: "#FFF44F"
+});
