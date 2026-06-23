@@ -371,6 +371,6 @@ It's amazing to play with you, and of course, it is an honor to be in this group
 May there be more happiness for you!
 
 - poppy`,
-  img: "assets/nigga.gif",
+  video: "assets/animation.gif.mp4",
   color: "#F28500"
   });
