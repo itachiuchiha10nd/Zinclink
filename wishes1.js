@@ -359,3 +359,18 @@ Amnesiacs Alive : 3 / 46
 Game Length: 00:40:12`,
 color: "#FFF44F"
 });
+
+addWish({
+title: "Happy Birthday, Zinc! 🎂",
+msg: `Happy Birthday, Zinc!
+
+Thank you for your efforts, whether in your life or here.
+
+It's amazing to play with you, and of course, it is an honor to be in this group!
+
+May there be more happiness for you!
+
+- poppy`,
+  img: "assets/nigga.gif",
+  color: "#F28500"
+  });
