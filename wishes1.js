@@ -274,3 +274,31 @@ msg: "From oms/skit",
 video: "assets/skit.mov",
 color: "#00FFFF"
 });
+
+addWish({
+title: "Happy Birthday Shivam 🎉",
+msg: `happiest birthday my zincote friend
+
+hope God gives u every happiness 😊
+
+and u shine brighter and more importantly achieve everything u desired zinc (www)
+
+- shivam`,
+  color: "#800020"
+  });
+
+addWish({
+title: "Happy Birthday Zinc 🎂🎈",
+msg: `Happy Birthday Zinc 🎂🎈
+
+- luna`,
+  color: "#FF66CC"
+  });
+
+addWish({
+title: "Happy Birthday Zinc 🎉",
+msg: `𝑍𝑖𝑛𝑐 happy birthday
+
+- susmit`,
+  color: "#FFDAB9"
+  });
