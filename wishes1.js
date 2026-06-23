@@ -374,3 +374,15 @@ May there be more happiness for you!
   video: "assets/animation.gif.mp4",
   color: "#F28500"
   });
+
+addWish({
+title: "Happy Birthday Nab Zinci! 🎉",
+msg: `Happy birthday nab zinci! 🎉
+
+Hope your day is filled with laughter, love, and everything that makes you smile!
+
+regards~
+the final boss`,
+video: "assets/nigga.mp4",
+color: "#FF00FF"
+});
